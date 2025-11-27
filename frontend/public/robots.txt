@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thomsonschool.edu.ec/sitemap.xml

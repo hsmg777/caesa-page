@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: caesa-backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5000:5000"
+    restart: always
+    networks:
+      - caesa-network
+
+  caesa_dev:
+    build:
+      context: ./frontend      
+      dockerfile: Dockerfile    
+    container_name: caesa-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app:cached
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "dev", "--", "--host"]
+    depends_on:
+      - backend
+    networks:
+      - caesa-network
+networks:
+  caesa-network:
+    driver: bridge
