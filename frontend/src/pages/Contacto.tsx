@@ -7,6 +7,123 @@ import Swal from 'sweetalert2';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
+const faqs = [
+  {
+    question:
+      "¿Se requiere tener una formación técnica o ingenieril para tomar el Programa o alguno de los cursos?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        No se requiere. Todos los cursos del Programa pueden ser aprovechados
+        por personas de cualquier formación profesional.
+      </p>
+    ),
+  },
+  {
+    question: "¿Obtengo un certificado por cada curso?",
+    answer: (
+      <div className="text-gray-600 text-sm sm:text-base space-y-2">
+        <p>
+          • Al finalizar cada curso obtendrás una Constancia de Participación.
+        </p>
+        <p>
+          • Adicionalmente puedes obtener un Certificado de Acreditación de todo
+          el Programa al demostrar haber obtenido los conocimientos de los
+          cursos, mediante la entrega de evidencias que se solicitarán al
+          finalizar el Programa completo.
+        </p>
+      </div>
+    ),
+  },
+  {
+    question: "¿Cómo puedo obtener los cupones de descuentos que se ofrecen?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        Puedes solicitar los cupones de descuento que ofrecemos siguiendo las
+        indicaciones que aparecen en esta página web.
+      </p>
+    ),
+  },
+  {
+    question: "¿Los cupones de descuento tienen fecha de caducidad?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        Sí. Es importante que te inscribas en los cursos y aproveches los
+        descuentos antes de que llegue la fecha de caducidad.
+      </p>
+    ),
+  },
+  {
+    question: "¿Cuáles son los medios disponibles para pagar?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        Los cursos se imparten en la plataforma de Hotmart. Se tienen
+        diferentes medios disponibles para pagar, que se indican en la
+        plataforma, dependiendo de cada país.
+      </p>
+    ),
+  },
+  {
+    question: "¿Tengo que pagar en dólares estadounidenses?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        En la plataforma de Hotmart puedes pagar en la moneda de tu país.
+      </p>
+    ),
+  },
+  {
+    question: "¿Puedo tener asesoría personalizada?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        Puedes enviar un mensaje de correo electrónico a{" "}
+        <a
+          href="mailto:contacto@caesagroup.com"
+          className="text-[#1e3a8a] underline"
+        >
+          contacto@caesagroup.com
+        </a>{" "}
+        con las dudas que tengas sobre el contenido del curso que estés
+        tomando. Por este medio recibirás respuesta a tus preguntas.
+      </p>
+    ),
+  },
+  {
+    question:
+      "¿Puedo inscribirme a uno o varios cursos sin tomar todo el Programa?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        Sí. Puedes tomar cada curso en forma independiente. Al inscribirte en el
+        Programa completo obtienes un mayor descuento.
+      </p>
+    ),
+  },
+  {
+    question: "¿Se ofrece alguna garantía?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        Sí. Se ofrece una garantía de 7 días, dentro de los cuales puedes
+        solicitar un reembolso de tu pago.
+      </p>
+    ),
+  },
+  {
+    question: "¿Puedo hacer los pagos en parcialidades?",
+    answer: (
+      <p className="text-gray-600 text-sm sm:text-base">
+        Las inscripciones se hacen en un solo pago por el total del valor del
+        Programa o Curso. En caso de que tengas dificultades para hacerlo, puedes
+        enviar un mensaje de correo electrónico a{" "}
+        <a
+          href="mailto:contacto@caesagroup.com"
+          className="text-[#1e3a8a] underline"
+        >
+          contacto@caesagroup.com
+        </a>{" "}
+        para revisar tu caso particular.
+      </p>
+    ),
+  },
+];
+
 export function Contacto() {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -20,6 +137,11 @@ export function Contacto() {
   const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggleIndex = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -268,40 +390,13 @@ export function Contacto() {
                       </a>
                       <br />
                     </div>
-                  </div>
-
-                  {/* Teléfono */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="text-[#1e3a8a]" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="text-[#1e3a8a] mb-1">Teléfono / WhatsApp</h3>
-                      <a href="tel:+525512345678" className="text-gray-600 hover:text-[#3b82f6] transition-colors">
-                        +52 55 1234 5678
-                      </a>
-                      <p className="text-sm text-gray-500 mt-1">Disponible en WhatsApp</p>
-                    </div>
-                  </div>
-
-                  {/* Horarios */}
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Clock className="text-[#1e3a8a]" size={24} />
-                    </div>
-                    <div>
-                      <h3 className="text-[#1e3a8a] mb-1">Horario de atención</h3>
-                      <p className="text-gray-600">Lunes a Viernes: 9:00 - 18:00</p>
-                      <p className="text-gray-600">Sábados: 9:00 - 14:00</p>
-                      <p className="text-sm text-gray-500 mt-1">Hora del centro de México (GMT-6)</p>
-                    </div>
-                  </div>                  
+                  </div>                                   
                 </div>
 
                 {/* Botones de acción */}
                 <div className="mt-8 space-y-3">
                   <a
-                    href="https://wa.me/525512345678"
+                    href="https://wa.me/528117931668"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors"
@@ -379,38 +474,43 @@ export function Contacto() {
         </div>
       </section>
 
-      {/* FAQ rápido */}
+     {/* FAQ rápido */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl text-[#1e3a8a] mb-8 text-center">Preguntas frecuentes</h2>
-          
-          <div className="space-y-4">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-[#1e3a8a] mb-2">¿Cuánto tiempo tardan en responder?</h3>
-              <p className="text-gray-600">
-                Normalmente respondemos en menos de 24 horas durante días hábiles. Para consultas urgentes, 
-                te recomendamos contactarnos por WhatsApp.
-              </p>
-            </div>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl text-[#1e3a8a] mb-8 text-center">
+            Preguntas frecuentes
+          </h2>
 
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-[#1e3a8a] mb-2">¿Ofrecen asesoría personalizada?</h3>
-              <p className="text-gray-600">
-                Sí, podemos agendar una videollamada gratuita para ayudarte a elegir el programa o curso 
-                que mejor se adapte a tus necesidades y objetivos profesionales.
-              </p>
-            </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {faqs.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-md border border-gray-100"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleIndex(index)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-left"
+                >
+                  <h3 className="text-[#1e3a8a] font-medium text-sm sm:text-base">
+                    {item.question}
+                  </h3>
+                  <span className="ml-4 text-[#1e3a8a] text-xl leading-none">
+                    {openIndex === index ? "−" : "+"}
+                  </span>
+                </button>
 
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-[#1e3a8a] mb-2">¿Tienen descuentos para empresas?</h3>
-              <p className="text-gray-600">
-                Sí, ofrecemos planes especiales para equipos y empresas. Contáctanos seleccionando 
-                "Soluciones para empresas" en el formulario para más información.
-              </p>
-            </div>
+                {openIndex === index && (
+                  <div className="px-6 pb-5 pt-0">
+                    {item.answer}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
     </div>
   );
 }

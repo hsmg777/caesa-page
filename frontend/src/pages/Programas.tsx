@@ -23,11 +23,11 @@ export function Programas() {
       id: 1,
       nombre: 'Programa: Desarrollo de Competencias Profesionales',
       descripcion: 'Acelera tu crecimiento profesional dominando habilidades prácticas y estratégicas (TOC, Lean, CCPM) que no se enseñan en la universidad, diseñadas para lograr ascensos y resultados tangibles.',
-      duracion: '9 modulos completos ',
+      duracion: '8 cursos y 1 diplomado.',
       nivel: 'Intermedio',
       modalidad: 'Online',
       precio: '$597',
-      precioAnterior: '$997',
+      precioAnterior: '$1473',
       beneficios: [
         'Mayor empleabilidad y preparación para puestos gerenciales',
         'Certificados profesionales individuales por curso',
@@ -35,15 +35,15 @@ export function Programas() {
         'Habilidades para la toma de decisiones basada en datos'
       ],
       modulos: [
-        'Módulo 1: Admin. de Manufactura con Teoría de Restricciones (TOC)',
-        'Módulo 2: Administración de Proyectos con Cadena Crítica (CCPM)',
-        'Módulo 3: Sistemas de Soporte a Decisiones (VGCM)',
-        'Módulo 4: Análisis y Solución de Problemas (Causa Raíz)',
-        'Módulo 5: Pensamiento Crítico y Toma de Decisiones',
-        'Módulo 6: Liderazgo, Trabajo en Equipo y Gestión del Tiempo',
-        'Módulo 7: Evaluación Económica de Proyectos (ROI, VPN, TIR)',
-        'Módulo 8: Mejora Continua (Lean, Kaizen, PDCA)',
-        'Módulo 9: Diplomado en Manufactura Esbelta (Incluye VSM y Estrategia)'
+        'Curso 1: Admin. de Manufactura con Teoría de Restricciones (TOC)',
+        'Curso 2: Administración de Proyectos con Cadena Crítica (CCPM)',
+        'Curso 3: Sistemas de Soporte a Decisiones (VGCM)',
+        'Curso 4: Análisis y Solución de Problemas (Causa Raíz)',
+        'Curso 5: Pensamiento Crítico y Toma de Decisiones',
+        'Curso 6: Liderazgo, Trabajo en Equipo y Gestión del Tiempo',
+        'Curso 7: Evaluación Económica de Proyectos (ROI, VPN, TIR)',
+        'Curso 8: Mejora Continua (Lean, Kaizen, PDCA)',
+        'Diplomado en Manufactura Esbelta (Incluye VSM y Estrategia)'
       ],
       incluye: [
         'Simuladores interactivos con software didáctico',
@@ -63,7 +63,7 @@ export function Programas() {
           <h1 className="text-4xl lg:text-5xl mb-4">Nuestros Programas</h1>
           <p className="text-xl text-blue-100 max-w-3xl">
             Programas completos diseñados para profesionales que buscan transformar su carrera. 
-            Incluyen acompañamiento personalizado, certificación reconocida y acceso de por vida.
+            Incluyen acompañamiento personalizado, certificación de finalización y acceso de por vida.
           </p>
         </div>
       </section>

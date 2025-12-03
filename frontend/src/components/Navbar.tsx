@@ -43,6 +43,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
             >
               <img src="/images/logo.png" alt="CAESA GROUP Logo" className="h-12 w-auto" />
               <span className="text-[#1e3a8a] text-xl">CAESA GROUP</span>
+              <span className="text-sm text-gray-500">Capacitaciones</span>
             </motion.div>
 
             {/* Desktop Navigation */}

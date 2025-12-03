@@ -219,7 +219,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                 <div className="text-[#1e3a8a] mb-3">
                   <span className="text-sm">Precio normal:</span>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-2xl text-gray-400 line-through">$997</span>
+                    <span className="text-6xl text-red-400 line-through">$1473</span>
                     <motion.span
                       animate={{ scale: [1, 1.05, 1] }}
                       transition={{ repeat: Infinity, duration: 1.5 }}
@@ -273,7 +273,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li className="flex items-center gap-2">
                       <CheckCircle size={16} className="text-green-500" />
-                      <span>9 Cursos enfocados en desarrollo de competencias personales</span>
+                      <span>8 cursos y 1 diplomado enfocados en desarrollo de competencias personales</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle size={16} className="text-green-500" />
@@ -403,7 +403,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                 </p>
 
                 <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-gray-400 line-through">{curso.precioAnterior}</span>
+                  <span className="text-3xl text-red-400 line-through">{curso.precioAnterior}</span>
                   <span className="text-3xl text-[#3b82f6]">{curso.precio}</span>
                 </div>
 
@@ -527,7 +527,7 @@ export function Inicio({ onNavigate }: InicioProps) {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="https://hotmart.com"
+              href="https://wa.me/528117931668?text=Quiero%20inscribirme%20a%20la%20sesión%20informativa%20y%20acceder%20a%20los%20descuentos%20del%20programa"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all"
@@ -570,12 +570,12 @@ export function Inicio({ onNavigate }: InicioProps) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
-              { icon: Award, title: 'Certificación Internacional', desc: 'Reconocida en +50 países' },
-              { icon: TrendingUp, title: '95% Tasa de Éxito', desc: 'Resultados comprobados' },
+              { icon: Award, title: 'Certificación de finalización', desc: '' },
+              { icon: TrendingUp, title: 'Resultados comprobados en ', desc: '' },
               { icon: CheckCircle, title: 'Actualizado 2024', desc: 'Contenido de última generación' },
               { icon: Users, title: 'Comunidad VIP', desc: '+15,000 profesionales activos' },
               { icon: Rocket, title: 'Aprende Rápido', desc: 'Metodología acelerada' },
-              { icon: ShieldCheck, title: 'Garantía 7 Días', desc: 'Sin preguntas, 100% reembolso' },
+              { icon: ShieldCheck, title: 'Garantía con Hotmart', desc: 'Sin preguntas, 100% reembolso' },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -604,10 +604,10 @@ export function Inicio({ onNavigate }: InicioProps) {
             className="text-center"
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400 max-w-2xl mx-auto">
-              <h3 className="text-2xl mb-4">🎁 BONUS ESPECIAL DE HOY</h3>
+              <h3 className="text-2xl mb-4">🎁 BONUS ESPECIAL</h3>
               <p className="text-xl mb-6">
                Inscribete a la <strong className="text-yellow-400">sesión informativa</strong> y recibe
-                <strong className="text-yellow-400"> 1 software de simulación de contabilidad GRATIS</strong> 
+                <strong className="text-yellow-400"> 1 software de simulación GRATIS</strong> 
               </p>
               <motion.a
                 whileHover={{ scale: 1.05 }}

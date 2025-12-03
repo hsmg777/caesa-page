@@ -54,11 +54,11 @@ export function SobreNosotros({ onNavigate }: SobreNosotrosProps) {
   const beneficios = [
     {
       icono: Award,
-      titulo: 'Certificación reconocida',
+      titulo: 'Certificación de finalización',
     },
     {
       icono: BookOpen,
-      titulo: 'Contenido actualizado',
+      titulo: 'Contenido exclusivo',
     },
     {
       icono: TrendingUp,
@@ -183,27 +183,6 @@ export function SobreNosotros({ onNavigate }: SobreNosotrosProps) {
         </div>
       </section>  
 
-      {/* Timeline */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl lg:text-4xl text-[#1e3a8a] mb-12 text-center">Nuestro recorrido</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {timeline.map((item, index) => (
-              <div key={index} className="relative">
-                <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                  <div className="text-4xl text-[#3b82f6] mb-4">{item.year}</div>
-                  <h3 className="text-[#1e3a8a] mb-2">{item.titulo}</h3>
-                  <p className="text-gray-600 text-sm">{item.descripcion}</p>
-                </div>
-                {index < timeline.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-[#3b82f6]"></div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Por qué ofrecemos estos cursos */}
       <section className="py-6 bg-gray-50">
@@ -240,7 +219,7 @@ export function SobreNosotros({ onNavigate }: SobreNosotrosProps) {
             ¿Listo para dar el siguiente paso?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Únete a los próximos profesionales que transformarán sus carreras con CAESA GROUP
+            Diferencia tu perfil profesional con habilidades obtenidas con nuestros conocimientos que las empresas hoy en dia valoran.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
