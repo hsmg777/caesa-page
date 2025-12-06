@@ -70,7 +70,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                 transition={{ duration: 0.5, delay: 0.6 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => handleNavClick('programas')}
+                onClick={() => window.open("https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo", "_blank")}
                 className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white px-6 py-2.5 rounded-lg hover:shadow-lg transition-all relative overflow-hidden group"
               >
                 <span className="relative z-10">Quiero inscribirme</span>
@@ -117,7 +117,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   </button>
                 ))}
                 <button
-                  onClick={() => handleNavClick('programas')}
+                  onClick={() => window.open("https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo", "_blank")}
                   className="block w-full bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all"
                 >
                   Quiero inscribirme

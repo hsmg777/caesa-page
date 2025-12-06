@@ -1,5 +1,6 @@
 import { CheckCircle, Clock, Users, Award, TrendingUp, ExternalLink, X } from 'lucide-react';
 import { useState } from 'react';
+import BonusSection from '../components/BonusSection';
 
 interface Programa {
   id: number;
@@ -145,6 +146,8 @@ export function Programas() {
           </div>
         </div>
       </section>
+      
+      <BonusSection/>
 
       {/* Modal de Detalles */}
       {programaSeleccionado && (

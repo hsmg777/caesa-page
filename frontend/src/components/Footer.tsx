@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Music2 } from 'lucide-react';
 
 type Page = 'inicio' | 'programas' | 'cursos' | 'sobre-nosotros' | 'contacto';
 
@@ -20,7 +20,12 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img src="/images/logo.png" alt="CAESA GROUP" className="h-10 w-auto brightness-0 invert" />
-              <span className="text-lg">CAESA GROUP</span>
+              <div className='flex flex-col'> 
+                <span className="text-lg">CAESA GROUP</span>
+                <span className="text-sm text-gray-200">Capacitaciones</span>
+              </div>
+              
+              
             </div>
             <p className="text-blue-200 text-sm">
               Transformando carreras a través de la educación en línea de calidad.
@@ -64,18 +69,8 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#" className="text-blue-200 hover:text-white transition-colors">
+                <a href="https://hotmart.com/es/legal" target="_bñank" className="text-blue-200 hover:text-white transition-colors">
                   Términos y condiciones
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-blue-200 hover:text-white transition-colors">
-                  Políticas de privacidad
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-blue-200 hover:text-white transition-colors">
-                  Política de reembolsos
                 </a>
               </li>
             </ul>
@@ -85,18 +80,14 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h4 className="mb-4">Síguenos</h4>
             <div className="flex gap-4">
-              <a href="#" className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
-                <Facebook size={20} />
-              </a>
-              <a href="#" className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
+              
+              <a href="https://www.instagram.com/caesagroup" target='_blank' className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
-                <Linkedin size={20} />
+              <a href="https://www.tiktok.com/@caesa.group" target='_blank' className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
+                <Music2 size={20} />
               </a>
-              <a href="#" className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
-                <Youtube size={20} />
-              </a>
+              
             </div>
           </div>
         </div>

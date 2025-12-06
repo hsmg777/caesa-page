@@ -5,11 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 export function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const whatsappNumber = '525512345678';
-  const whatsappMessage = '¡Hola! Me interesa conocer más sobre los cursos y programas de CAESA GROUP 🚀';
 
   const handleClick = () => {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    const url = `https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo`;
     window.open(url, '_blank');
   };
 
@@ -39,7 +37,7 @@ export function WhatsAppButton() {
                 <span className="text-green-600">¿Necesitas ayuda?</span>
               </p>
               <p className="text-xs text-gray-600 mb-3">
-                Chatea con nosotros y obtén un <span className="text-green-600">10% de descuento extra</span> 🎁
+                Chatea con nosotros y obtén un <span className="text-green-600">descuento extra</span> 🎁
               </p>
             </motion.div>
           )}

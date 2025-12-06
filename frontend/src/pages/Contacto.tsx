@@ -1,4 +1,4 @@
-import { Mail, Phone, Clock, MapPin, Facebook, Instagram, Linkedin, Youtube, Send, MessageSquare } from 'lucide-react';
+import { Mail, Instagram, Send, MessageSquare, Music2 } from 'lucide-react';
 import { useState } from 'react';
 import 'react-international-phone/style.css';
 import { PhoneInput } from 'react-international-phone';
@@ -413,20 +413,7 @@ export function Contacto() {
                 
                 <div className="grid grid-cols-2 gap-4">
                   <a
-                    href="https://facebook.com/caesagroup"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
-                  >
-                    <Facebook className="text-[#1e3a8a] group-hover:scale-110 transition-transform" size={24} />
-                    <div>
-                      <div className="text-[#1e3a8a]">Facebook</div>
-                      <div className="text-xs text-gray-500">@caesagroup</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://instagram.com/caesagroup"
+                    href="https://www.instagram.com/caesagroup"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-4 bg-pink-50 rounded-lg hover:bg-pink-100 transition-colors group"
@@ -439,28 +426,15 @@ export function Contacto() {
                   </a>
 
                   <a
-                    href="https://linkedin.com/company/caesagroup"
+                    href="https://www.tiktok.com/@caesa.group"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors group"
                   >
-                    <Linkedin className="text-[#1e3a8a] group-hover:scale-110 transition-transform" size={24} />
+                    <Music2 className="text-[#1e3a8a] group-hover:scale-110 transition-transform" size={24} />
                     <div>
-                      <div className="text-[#1e3a8a]">LinkedIn</div>
-                      <div className="text-xs text-gray-500">@caesagroup</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href="https://youtube.com/caesagroup"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 bg-red-50 rounded-lg hover:bg-red-100 transition-colors group"
-                  >
-                    <Youtube className="text-[#1e3a8a] group-hover:scale-110 transition-transform" size={24} />
-                    <div>
-                      <div className="text-[#1e3a8a]">YouTube</div>
-                      <div className="text-xs text-gray-500">@caesagroup</div>
+                      <div className="text-[#1e3a8a]">Tiktok</div>
+                      <div className="text-xs text-gray-500">@caesa.group</div>
                     </div>
                   </a>
                 </div>

@@ -1,5 +1,6 @@
 import { Clock, BarChart, ExternalLink, Filter, X } from 'lucide-react';
 import { useState } from 'react';
+import BonusSection from '../components/BonusSection';
 
 interface Curso {
   id: number;
@@ -454,6 +455,8 @@ export function Cursos() {
           )}
         </div>
       </section>
+
+      <BonusSection/>
 
       {/* Modal de Detalles */}
       {cursoSeleccionado && (

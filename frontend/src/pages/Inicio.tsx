@@ -1,9 +1,12 @@
 import { ArrowRight, Star, CheckCircle, TrendingUp, Award, Clock, ExternalLink, 
-         Zap, Users, ShieldCheck, Rocket, Gift, Target, Facebook, Instagram, Linkedin, Youtube, } from 'lucide-react';
+         Zap, Users, ShieldCheck, Rocket, Gift, Target, Instagram, Music2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import HeroFounderHighlight from '../components/HeroFounderHighlight';
+import PainSolutionSection from '../components/PainSolutionSection';
+import useEmblaCarousel from "embla-carousel-react";
+
 
 
 type Page = 'inicio' | 'programas' | 'cursos' | 'sobre-nosotros' | 'contacto';
@@ -13,11 +16,16 @@ interface InicioProps {
 }
 
 export function Inicio({ onNavigate }: InicioProps) {
-  // Fecha objetivo: 15 diciembre 2025
-    const eventDate = new Date(2025, 11, 15); // OJO: mes 11 = diciembre (0-based)
+
+    const eventDate = new Date(2025, 11, 17); // OJO: mes 11 = diciembre (0-based)
     const today = new Date();
 
-    // Normalizamos a medianoche para evitar problemas de horas
+    const handleNavigate = (page: Page) => {
+      onNavigate(page);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+
     eventDate.setHours(0, 0, 0, 0);
     today.setHours(0, 0, 0, 0);
 
@@ -31,9 +39,22 @@ export function Inicio({ onNavigate }: InicioProps) {
       seconds: 0,
       expired: false,
     });
+    const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+    const scrollPrev = useCallback(() => {
+      setCurrentTestimonial((prev) =>
+        prev === 0 ? testimoniosFQF.length - 1 : prev - 1
+      );
+    }, []);
+
+    const scrollNext = useCallback(() => {
+      setCurrentTestimonial((prev) =>
+        prev === testimoniosFQF.length - 1 ? 0 : prev + 1
+      );
+    }, []);
 
     useEffect(() => {
-      const targetDate = new Date(2025, 11, 15, 0, 0, 0); 
+      const targetDate = new Date(2025, 11, 17, 0, 0, 0); 
 
       const updateCountdown = () => {
         const now = new Date().getTime();
@@ -110,32 +131,51 @@ export function Inicio({ onNavigate }: InicioProps) {
     },
   ];
 
-  const testimonios = [
-    {
-      nombre: 'María González',
-      profesion: 'Gerente de Marketing',
-      foto: 'https://images.unsplash.com/photo-1509924023100-a470ace3c89e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MzY5ODU4OXww&ixlib=rb-4.1.0&q=80&w=1080',
-      testimonio: 'El Programa Premium transformó completamente mi carrera. Las herramientas y estrategias que aprendí me ayudaron a triplicar los resultados de mi equipo.',
-      rating: 5,
-      resultado: 'Aumento de 300% en ventas',
-    },
-    {
-      nombre: 'Carlos Ramírez',
-      profesion: 'Analista de Datos',
-      foto: 'https://images.unsplash.com/photo-1709715357520-5e1047a2b691?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMHRlYW0lMjBtZWV0aW5nfGVufDF8fHx8MTc2MzY2MzM2M3ww&ixlib=rb-4.1.0&q=80&w=1080',
-      testimonio: 'Increíble calidad de contenido. Los instructores son expertos en su campo y el material está súper actualizado. Vale cada centavo.',
-      rating: 5,
-      resultado: 'Promoción en 3 meses',
-    },
-    {
-      nombre: 'Laura Mendoza',
-      profesion: 'Emprendedora Digital',
-      foto: 'https://images.unsplash.com/photo-1551989745-8ac16ba81d78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHN1Y2Nlc3N8ZW58MXx8fHwxNzYzNjQyMjQwfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      testimonio: 'Después de completar 3 cursos con CAESA GROUP, logré lanzar mi propio negocio digital. El acompañamiento es excepcional.',
-      rating: 5,
-      resultado: 'Negocio propio exitoso',
-    },
-  ];
+  const testimoniosFQF = [
+  {
+    nombre: 'Dr. Fernando Mata',
+    rol: 'Coach, Educador, Consultor y Escritor',
+    texto:
+      'Felipe combina una competencia excepcional con un profundo compromiso con la formación de sus estudiantes. Sabe traducir ideas complejas en enseñanzas claras y transformadoras, y se convierte en un verdadero mentor para quienes trabajan con él.',
+  },
+  {
+    nombre: 'Gustavo Aceves',
+    rol: 'Consultor',
+    texto:
+      'Conozco a Felipe desde mis años como alumno en el Tec. Sus clases siempre fueron interactivas y cercanas. Hoy, como colega, destaco su amplia experiencia profesional, su actualización constante y la seguridad y confianza que inspira.',
+  },
+  {
+    nombre: 'Jorge Lozano',
+    rol: 'Director General, PROLEC-GE',
+    texto:
+      'El esquema de proyectos empresariales que hemos desarrollado con Felipe es una de mis mayores satisfacciones profesionales. Es parte central de nuestra estrategia de competitividad y ha demostrado ser un enfoque ganar-ganar muy poderoso.',
+  },
+  {
+    nombre: 'Edgar García',
+    rol: 'Plant Manager, Nemak',
+    texto:
+      'CAESA Group jugó un rol estratégico en un proyecto de transformación, aplicando herramientas Lean con enfoque holístico. Complementaron nuestras capacidades internas y co-creamos una ruta clara para futuros desarrollos.',
+  },
+  {
+    nombre: 'Patricio Fernando Sada Garza',
+    rol: 'Gerente de Operaciones, Laboratorios Corne',
+    texto:
+      'Los proyectos con CAESA Group y Felipe nos dieron herramientas estratégicas para decidir mejor y aumentar márgenes. Visualizamos el balanceo de nuestras líneas y definimos estrategias efectivas. Nuestros accionistas están altamente satisfechos.',
+  },
+  {
+    nombre: 'Esteban Jacques',
+    rol: 'Partner Operations, C3 Consensus',
+    texto:
+      'Felipe ha marcado la disciplina de la ingeniería industrial en México. Lidera con el ejemplo, ha formado generaciones y su influencia va mucho más allá del aula, con cientos de proyectos industriales e instituciones fundadas.',
+  },
+  {
+    nombre: 'Francisco Ocejo',
+    rol: 'Presidente, ALFRA Consulting',
+    texto:
+      'He trabajado con Felipe: es metodológico, vanguardista y disciplinado. Su compromiso con la industria, la educación y la sociedad es evidente en cada proyecto en el que participa.',
+  },
+];
+
 
   return (
     <div className="pt-0">
@@ -251,7 +291,7 @@ export function Inicio({ onNavigate }: InicioProps) {
 
                     {/* Botón WhatsApp */}
                     <a
-                      href="https://wa.me/528117931668"
+                      href="https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center px-4 py-2.5 rounded-full
@@ -325,7 +365,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                 className="mt-4 text-center"
               >
                 <button
-                  onClick={() => onNavigate('programas')}
+                  onClick={() => handleNavigate('programas')}
                   className="text-white hover:text-yellow-400 transition-colors inline-flex items-center gap-2"
                 >
                   <span>Ver todos los programas disponibles</span>
@@ -351,9 +391,9 @@ export function Inicio({ onNavigate }: InicioProps) {
           </div>
         </div>
       </section>
-
-      {/* Banner de urgencia */}
-      
+      <section className="py-0 bg-gray-50">
+        <PainSolutionSection onNavigate={onNavigate}/>
+      </section>
 
       {/* Cursos Destacados CON MAS CTAs */}
       <section className="py-20 bg-gray-50">
@@ -433,7 +473,7 @@ export function Inicio({ onNavigate }: InicioProps) {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => onNavigate('cursos')}
+              onClick={() => handleNavigate('cursos')}
               className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all inline-flex items-center gap-2"
             >
               <Target size={24} />
@@ -458,87 +498,118 @@ export function Inicio({ onNavigate }: InicioProps) {
 
       {/* Testimonios CON RESULTADOS */}
       <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Título */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm mb-4">
+            TESTIMONIOS
+          </div>
+          <h2 className="text-3xl lg:text-4xl text-[#1e3a8a] mb-4">
+            Resultados que hablan por sí solos
+          </h2>
+          <p className="text-xl text-gray-600">
+            Directivos, consultores y líderes que han trabajado con Felipe y CAESA Group.
+          </p>
+        </motion.div>
+
+        {/* CARRUSEL */}
+        <div className="relative mb-12">
+          {/* Botones flecha */}
+          <button
+            type="button"
+            onClick={scrollPrev}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 items-center justify-center text-gray-600 hover:bg-gray-50"
           >
-            <div className="inline-block bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm mb-4">
-              TESTIMONIOS
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            type="button"
+            onClick={scrollNext}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 items-center justify-center text-gray-600 hover:bg-gray-50"
+          >
+            <ChevronRight size={20} />
+          </button>
+
+          {/* Track Embla */}
+          <div className="overflow-hidden px-1">
+            <div
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}
+            >
+              {testimoniosFQF.map((item, index) => (
+                <motion.div
+                  key={index}
+                  // ⬇️ AQUÍ EL CAMBIO IMPORTANTE
+                  className="min-w-full px-2"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="h-full bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 sm:p-8 border border-blue-100 shadow-sm">
+                    <div className="mb-4 text-4xl text-blue-300">“</div>
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      {item.texto}
+                    </p>
+                    <div className="border-t border-blue-100 pt-4">
+                      <div className="text-[#1e3a8a] font-semibold">
+                        {item.nombre}
+                      </div>
+                      <div className="text-sm text-gray-500">
+                        {item.rol}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <h2 className="text-3xl lg:text-4xl text-[#1e3a8a] mb-4">
-              Resultados Que Hablan Por Sí Solos
-            </h2>
-            <p className="text-xl text-gray-600">
-              Profesionales han transformado sus carreras
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {testimonios.map((testimonio, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 hover:shadow-2xl transition-all border-2 border-blue-100"
-              >
-                <div className="flex gap-1 mb-4">
-                  {[...Array(testimonio.rating)].map((_, i) => (
-                    <Star key={i} size={20} className="fill-yellow-400 text-yellow-400" />
-                  ))}
-                </div>
-                
-                <p className="text-gray-700 mb-4 italic">
-                  "{testimonio.testimonio}"
-                </p>
-
-                <div className="bg-green-100 border-2 border-green-400 rounded-lg p-3 mb-4">
-                  <div className="text-sm text-green-700 flex items-center gap-2">
-                    <TrendingUp size={16} />
-                    <strong>Resultado: {testimonio.resultado}</strong>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <ImageWithFallback 
-                    src={testimonio.foto}
-                    alt={testimonio.nombre}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="text-[#1e3a8a]">{testimonio.nombre}</div>
-                    <div className="text-sm text-gray-500">{testimonio.profesion}</div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href="https://wa.me/528117931668?text=Quiero%20inscribirme%20a%20la%20sesión%20informativa%20y%20acceder%20a%20los%20descuentos%20del%20programa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all"
-            >
-              <Gift size={24} />
-              <span>¡Quiero estos resultados! - Inscribirme ahora en la sesión informativa</span>
-              <ExternalLink size={20} />
-            </motion.a>
-          </motion.div>
+
+
+          {/* Dots */}
+          <div className="flex justify-center mt-6 gap-2">
+            {testimoniosFQF.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentTestimonial(index)}
+                className={`w-2.5 h-2.5 rounded-full transition ${
+                  currentTestimonial === index
+                    ? "bg-[#1e3a8a]"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
-      </section>
+
+        {/* CTA WhatsApp (igual que tenías) */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <motion.a
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            href="https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all"
+          >
+            <Gift size={24} />
+            <span>¡Quiero estos resultados! - Inscribirme ahora en la sesión informativa</span>
+            <ExternalLink size={20} />
+          </motion.a>
+        </motion.div>
+      </div>
+    </section>
 
       {/* Beneficios con CTA */}
       <section className="py-20 bg-gradient-to-br from-[#1e3a8a] to-[#3b82f6] text-white relative overflow-hidden">
@@ -571,11 +642,11 @@ export function Inicio({ onNavigate }: InicioProps) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
               { icon: Award, title: 'Certificación de finalización', desc: '' },
-              { icon: TrendingUp, title: 'Resultados comprobados en ', desc: '' },
-              { icon: CheckCircle, title: 'Actualizado 2024', desc: 'Contenido de última generación' },
-              { icon: Users, title: 'Comunidad VIP', desc: '+15,000 profesionales activos' },
-              { icon: Rocket, title: 'Aprende Rápido', desc: 'Metodología acelerada' },
-              { icon: ShieldCheck, title: 'Garantía con Hotmart', desc: 'Sin preguntas, 100% reembolso' },
+              { icon: TrendingUp, title: 'Mejora tu carrera ', desc: '' },
+              { icon: CheckCircle, title: 'Actualizado 2025', desc: '' },
+              { icon: Users, title: 'Vuelvete un profesional cometitivo', desc: '' },
+              { icon: Rocket, title: 'Aprende Rápido', desc: '' },
+              { icon: ShieldCheck, title: 'Garantía con Hotmart', desc: '' },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -603,26 +674,54 @@ export function Inicio({ onNavigate }: InicioProps) {
             viewport={{ once: true }}
             className="text-center"
           >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400 max-w-2xl mx-auto">
-              <h3 className="text-2xl mb-4">🎁 BONUS ESPECIAL</h3>
-              <p className="text-xl mb-6">
-               Inscribete a la <strong className="text-yellow-400">sesión informativa</strong> y recibe
-                <strong className="text-yellow-400"> 1 software de simulación GRATIS</strong> 
-              </p>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://wa.me/528117931668?text=Quiero%20inscribirme%20a%20la%20sesión%20informativa%20y%20acceder%20a%20los%20descuentos%20del%20programa"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a] px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg"
-              >
-                <Rocket size={28} />
-                <span>¡SÍ! QUIERO MI BONUS GRATIS</span>
-                <ExternalLink size={24} />
-              </motion.a>
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400 max-w-3xl mx-auto">
+              
+              <h3 className="text-3xl font-bold mb-6 text-yellow-400">
+                🎁 ¡OBTÉN TU BONUS ESPECIAL EN 2 PASOS!
+              </h3>
+
+              {/* PASO 1 */}
+              <div className="mb-10">
+                <p className="text-xl font-semibold mb-3 text-white">
+                  1️. Da clic aquí para obtener tu cupón de descuento
+                </p>
+
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a] px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-bold"
+                >
+                  <Rocket size={28} />
+                  <span>OBTENER MI CUPÓN</span>
+                  <ExternalLink size={24} />
+                </motion.a>
+              </div>
+
+              {/* PASO 2 */}
+              <div>
+                <p className="text-xl font-semibold mb-3 text-white">
+                  2️. Da clic aquí para usar el cupón en Hotmart
+                </p>
+
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href="https://hotmart.com" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2563eb] to-[#1e3a8a] text-white px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-bold"
+                >
+                  <span>USAR MI CUPÓN EN HOTMART</span>
+                  <ExternalLink size={24} />
+                </motion.a>
+              </div>
+
             </div>
-          </motion.div>
+</motion.div>
+
         </div>
       </section>
 
@@ -644,21 +743,12 @@ export function Inicio({ onNavigate }: InicioProps) {
 
             {/* Iconos de redes sociales */}
             <div className="flex items-center justify-center gap-4">
-              <motion.a
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://www.facebook.com/tu_pagina"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white shadow-sm p-3 rounded-lg hover:bg-blue-50 transition-colors"
-              >
-                <Facebook size={24} className="text-[#1877F2]" />
-              </motion.a>
+              
 
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://www.instagram.com/tu_pagina"
+                href="https://www.instagram.com/caesagroup"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white shadow-sm p-3 rounded-lg hover:bg-pink-50 transition-colors"
@@ -669,24 +759,16 @@ export function Inicio({ onNavigate }: InicioProps) {
               <motion.a
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://www.linkedin.com/company/tu_pagina"
+                href="https://www.tiktok.com/@caesa.group"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white shadow-sm p-3 rounded-lg hover:bg-sky-50 transition-colors"
+                className="bg-white shadow-sm p-3 rounded-lg hover:bg-black/5 transition-colors"
               >
-                <Linkedin size={24} className="text-[#0A66C2]" />
+                <Music2 size={24} className="text-black" />
               </motion.a>
 
-              <motion.a
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                href="https://www.youtube.com/@tu_canal"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white shadow-sm p-3 rounded-lg hover:bg-red-50 transition-colors"
-              >
-                <Youtube size={24} className="text-[#FF0000]" />
-              </motion.a>
+
+              
             </div>
           </motion.div>
         </div>
@@ -749,7 +831,7 @@ export function Inicio({ onNavigate }: InicioProps) {
             <motion.a
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              href="https://wa.me/528117931668?text=Quiero%20inscribirme%20a%20la%20sesión%20informativa%20y%20acceder%20a%20los%20descuentos%20del%20programa"
+              href="https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-white text-orange-600 px-12 py-6 rounded-2xl hover:shadow-2xl transition-all text-xl shadow-xl"
@@ -760,7 +842,7 @@ export function Inicio({ onNavigate }: InicioProps) {
             </motion.a>
 
             <p className="text-sm mt-6 opacity-90">
-              ⚡ No pierdas esta oportunidad única — sesión informativa: 15/12/2025
+              ⚡ No pierdas esta oportunidad única — sesión informativa: 17/12/2025
             </p>
           </motion.div>
         </div>
