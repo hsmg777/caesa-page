@@ -7,9 +7,12 @@ export function WhatsAppButton() {
 
 
   const handleClick = () => {
-    const url = `https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo`;
-    window.open(url, '_blank');
-  };
+  const phone = "528117931668"; 
+  const text = encodeURIComponent("Hola quiero mas informacion");
+  const url = `https://wa.me/${phone}?text=${text}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 
   return (
     <>

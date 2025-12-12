@@ -109,8 +109,9 @@ const faqs = [
     question: "¿Puedo hacer los pagos en parcialidades?",
     answer: (
       <p className="text-gray-600 text-sm sm:text-base">
-        Las inscripciones se hacen en un solo pago por el total del valor del
-        Programa o Curso. En caso de que tengas dificultades para hacerlo, puedes
+        Sí, la plataforma de pago te permite <strong>diferir el valor del programa en cuotas</strong> utilizando tu tarjeta de crédito (las opciones y meses disponibles dependen de tu banco y país).
+        <br />
+        En caso de que tengas dificultades para hacerlo, puedes
         enviar un mensaje de correo electrónico a{" "}
         <a
           href="mailto:contacto@caesagroup.com"
@@ -346,9 +347,15 @@ export function Contacto() {
                   />
                   <label htmlFor="aceptaPoliticas" className="text-sm text-gray-600">
                     Acepto las{' '}
-                    <a href="#" className="text-[#3b82f6] hover:underline">
-                      políticas de privacidad
-                    </a>{' '}
+                    <a
+                      href="/docs/Terms_Conditions_Caesa.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:text-blue-800 transition-colors"
+                    >
+                      Políticas de privacidad
+                    </a>
+                    {' '}
                     y el tratamiento de mis datos personales
                   </label>
                 </div>

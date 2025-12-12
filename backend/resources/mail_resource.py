@@ -2,7 +2,7 @@ from flask_smorest import Blueprint, abort
 import smtplib
 from email.message import EmailMessage
 import os
-
+from schemas.coupon_schema import CouponRequestSchema
 from schemas.mail_schema import MailSchema 
 mail_bp = Blueprint("mail", __name__, url_prefix="/api", description="Endpoints para envío de correos")
 
@@ -194,3 +194,107 @@ Notificación automática – CAESA GROUP
     except Exception as e:
         print("❌ Error al enviar correo:", repr(e))
         abort(500, message="No se pudo enviar el correo")
+
+
+
+@mail_bp.route("/request-coupon", methods=["POST"])
+@mail_bp.arguments(CouponRequestSchema)
+@mail_bp.response(200, description="Solicitud de cupón enviada correctamente")
+def request_coupon(data):
+    nombre = data["nombre"]
+    email = data["email"]
+    telefono = data.get("telefono") or "No proporcionado"
+    producto_interes = data["productoInteres"]
+    acepta_politicas = data["aceptaPoliticas"]
+
+    try:
+        msg = EmailMessage()
+        msg["Subject"] = f"Solicitud de cupón – CAESA GROUP ({nombre})"
+        msg["From"] = MAIL_SENDER
+        msg["To"] = MAIL_RECIPIENT
+
+        # Texto plano (fallback)
+        msg.set_content(
+            f"""
+Solicitud de cupón desde la web de CAESA GROUP
+
+Nombre: {nombre}
+Correo: {email}
+Teléfono: {telefono}
+Producto de interés: {producto_interes}
+Acepta políticas de privacidad: {"Sí" if acepta_politicas else "No"}
+
+Notificación automática – CAESA GROUP
+"""
+        )
+
+        # HTML (nuevo diseño orientado a cupón)
+        msg.add_alternative(
+            f"""
+<html>
+  <body style="margin:0; padding:0; background-color:#0f172a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+    <table align="center" width="650" cellpadding="0" cellspacing="0"
+           style="margin:24px auto; border-radius:20px; overflow:hidden; box-shadow:0 18px 45px rgba(15,23,42,0.55); background:#0b1f4a;">
+
+      <tr>
+        <td style="padding:32px 40px; background: linear-gradient(135deg,#16a34a,#22c55e); color:#ecfdf5;">
+          <div style="font-size:18px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;">
+            CAESA GROUP
+          </div>
+          <p style="margin:8px 0 0; font-size:14px; opacity:0.95;">
+            Nueva solicitud de cupón desde la web.
+          </p>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding:28px 32px; background: radial-gradient(circle at top left, #22c55e 0, #020617 55%); color:#e5e7eb;">
+          <table width="100%" cellpadding="0" cellspacing="0"
+                 style="border-radius:16px; background:rgba(15,23,42,0.92); border:1px solid rgba(148,163,184,0.28);">
+            <tr>
+              <td style="padding:22px;">
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.10em; color:#86efac; margin-bottom:10px;">
+                  Solicitud de cupón
+                </div>
+
+                <table width="100%" cellpadding="6" cellspacing="0" style="border-collapse:collapse; font-size:14px;">
+                  <tr><td style="width:38%; color:#9ca3af; font-weight:500;">Nombre completo</td><td style="color:#e5e7eb;">{nombre}</td></tr>
+                  <tr><td style="color:#9ca3af; font-weight:500;">Correo electrónico</td><td style="color:#e5e7eb;">{email}</td></tr>
+                  <tr><td style="color:#9ca3af; font-weight:500;">Teléfono</td><td style="color:#e5e7eb;">{telefono}</td></tr>
+                  <tr><td style="color:#9ca3af; font-weight:500;">Producto de interés</td><td style="color:#e5e7eb;">{producto_interes}</td></tr>
+                  <tr><td style="color:#9ca3af; font-weight:500;">Políticas</td><td style="color:#e5e7eb;">{"Aceptadas" if acepta_politicas else "No aceptadas"}</td></tr>
+                </table>
+
+                <div style="margin-top:16px; padding:14px 16px; border-radius:12px; background:rgba(2,6,23,0.75); border:1px dashed rgba(34,197,94,0.45); color:#d1fae5; line-height:1.5;">
+                  <strong>Acción:</strong> Generar cupón y responder al contacto con instrucciones de uso (vigencia y restricciones).
+                </div>
+
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding:18px 32px 24px; background:#020617; color:#64748b; font-size:11px; text-align:center;">
+          Mensaje automático generado desde la sección “Solicitud de cupón”.
+        </td>
+      </tr>
+
+    </table>
+  </body>
+</html>
+            """,
+            subtype="html",
+        )
+
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
+            smtp.starttls()
+            smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            smtp.send_message(msg)
+
+        return {"success": True, "message": "Solicitud de cupón enviada correctamente"}
+
+    except Exception as e:
+        print("❌ Error al enviar solicitud de cupón:", repr(e))
+        abort(500, message="No se pudo enviar la solicitud de cupón")

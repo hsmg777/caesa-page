@@ -69,7 +69,12 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="https://hotmart.com/es/legal" target="_bñank" className="text-blue-200 hover:text-white transition-colors">
+                <a
+                  href="/docs/Terms_Conditions_Caesa.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-200 hover:text-white transition-colors"
+                >
                   Términos y condiciones
                 </a>
               </li>

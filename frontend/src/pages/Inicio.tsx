@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from "react";
 import HeroFounderHighlight from '../components/HeroFounderHighlight';
 import PainSolutionSection from '../components/PainSolutionSection';
-import useEmblaCarousel from "embla-carousel-react";
+import CouponRequestModal from "../components/CouponRequestModal"; 
+import BonusSection from '../components/BonusSection';
 
 
 
@@ -17,8 +18,11 @@ interface InicioProps {
 
 export function Inicio({ onNavigate }: InicioProps) {
 
-    const eventDate = new Date(2025, 11, 17); // OJO: mes 11 = diciembre (0-based)
+    const eventDate = new Date(2025, 11, 19); // OJO: mes 11 = diciembre (0-based)
     const today = new Date();
+
+    const [openCouponModal, setOpenCouponModal] = useState(false);
+
 
     const handleNavigate = (page: Page) => {
       onNavigate(page);
@@ -54,8 +58,7 @@ export function Inicio({ onNavigate }: InicioProps) {
     }, []);
 
     useEffect(() => {
-      const targetDate = new Date(2025, 11, 17, 0, 0, 0); 
-
+      const targetDate = new Date(2025, 11, 18, 0, 0, 0); //Aqui fecha de contador
       const updateCountdown = () => {
         const now = new Date().getTime();
         const distance = targetDate.getTime() - now;
@@ -179,6 +182,9 @@ export function Inicio({ onNavigate }: InicioProps) {
 
   return (
     <div className="pt-0">
+      <section className="py-0 bg-gray-50">
+        <PainSolutionSection onNavigate={onNavigate} onRequestCoupon={() => setOpenCouponModal(true)}/>
+      </section>
       {/* Hero Section - SUPER VENDEDOR */}
       <section className="relative bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#3b82f6] text-white overflow-hidden">
         {/* Animated background */}
@@ -207,7 +213,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                   >
                     🔥
                   </motion.div>
-                  <span className="uppercase">OFERTA EXPLOSIVA - % OFF</span>
+                  <span className="uppercase">OFERTA EXCLUSIVA</span>
                 </div>
               </motion.div>
               
@@ -253,7 +259,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                   transition={{ repeat: Infinity, duration: 2 }}
                   className="absolute -top-4 -right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm shadow-xl"
                 >
-                  ¡AHORRA $400!
+                  ¡AHORRA mas de $700!
                 </motion.div>
 
                 <div className="text-[#1e3a8a] mb-3">
@@ -338,24 +344,24 @@ export function Inicio({ onNavigate }: InicioProps) {
                 transition={{ delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <motion.a
+                <motion.button
+                  type="button"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://hotmart.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  onClick={() => setOpenCouponModal(true)}
                   className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a] px-8 py-5 rounded-xl hover:shadow-2xl transition-all text-lg shadow-lg group relative overflow-hidden"
                 >
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400"
-                    initial={{ x: '-100%' }}
-                    whileHover={{ x: '100%' }}
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
                     transition={{ duration: 0.5 }}
                   />
                   <Rocket size={24} className="relative z-10" />
                   <span className="relative z-10">¡QUIERO MI DESCUENTO AHORA!</span>
                   <ExternalLink size={20} className="relative z-10" />
-                </motion.a>
+                </motion.button>
+
               </motion.div>
 
               <motion.div
@@ -391,9 +397,7 @@ export function Inicio({ onNavigate }: InicioProps) {
           </div>
         </div>
       </section>
-      <section className="py-0 bg-gray-50">
-        <PainSolutionSection onNavigate={onNavigate}/>
-      </section>
+      
 
       {/* Cursos Destacados CON MAS CTAs */}
       <section className="py-20 bg-gray-50">
@@ -667,7 +671,6 @@ export function Inicio({ onNavigate }: InicioProps) {
               </motion.div>
             ))}
           </div>
-
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -675,52 +678,27 @@ export function Inicio({ onNavigate }: InicioProps) {
             className="text-center"
           >
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400 max-w-3xl mx-auto">
-              
               <h3 className="text-3xl font-bold mb-6 text-yellow-400">
-                🎁 ¡OBTÉN TU BONUS ESPECIAL EN 2 PASOS!
+                🎁 ¡OBTÉN TU BONUS ESPECIAL!
               </h3>
 
-              {/* PASO 1 */}
-              <div className="mb-10">
-                <p className="text-xl font-semibold mb-3 text-white">
-                  1️. Da clic aquí para obtener tu cupón de descuento
-                </p>
+              <p className="text-base sm:text-lg text-white/90 mb-8">
+                Sigue los pasos dentro del modal para solicitar tu cupón y continuar con el proceso.
+              </p>
 
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a] px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-bold"
-                >
-                  <Rocket size={28} />
-                  <span>OBTENER MI CUPÓN</span>
-                  <ExternalLink size={24} />
-                </motion.a>
-              </div>
-
-              {/* PASO 2 */}
-              <div>
-                <p className="text-xl font-semibold mb-3 text-white">
-                  2️. Da clic aquí para usar el cupón en Hotmart
-                </p>
-
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="https://hotmart.com" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2563eb] to-[#1e3a8a] text-white px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-bold"
-                >
-                  <span>USAR MI CUPÓN EN HOTMART</span>
-                  <ExternalLink size={24} />
-                </motion.a>
-              </div>
-
+              <motion.button
+                type="button"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setOpenCouponModal(true)}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a] px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-bold"
+              >
+                <Rocket size={28} />
+                <span>SEGUIR LOS PASOS</span>
+              </motion.button>
             </div>
-</motion.div>
+          </motion.div>
+
 
         </div>
       </section>
@@ -737,7 +715,7 @@ export function Inicio({ onNavigate }: InicioProps) {
               📱 Únete a Nuestra Comunidad
             </h2>
             <p className="text-gray-600 mb-8">
-              <strong className="text-[#3b82f6]">Tips diarios, recursos gratis</strong> y
+              <strong className="text-[#3b82f6]">Recursos gratis</strong> y
               <strong className="text-[#3b82f6]"> ofertas exclusivas</strong> solo para seguidores
             </p>
 
@@ -847,6 +825,11 @@ export function Inicio({ onNavigate }: InicioProps) {
           </motion.div>
         </div>
       </motion.section>
+      <CouponRequestModal
+        isOpen={openCouponModal}
+        onClose={() => setOpenCouponModal(false)}
+      />
+
     </div>
   );
 }
