@@ -820,7 +820,7 @@ export function Inicio({ onNavigate }: InicioProps) {
             </motion.a>
 
             <p className="text-sm mt-6 opacity-90">
-              ⚡ No pierdas esta oportunidad única — sesión informativa: 17/12/2025
+              ⚡ No pierdas esta oportunidad única — sesión informativa: 18/12/2025
             </p>
           </motion.div>
         </div>
