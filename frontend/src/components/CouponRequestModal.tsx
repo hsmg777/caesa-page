@@ -28,7 +28,7 @@ export default function CouponRequestModal({
 
   const PRODUCTOS = useMemo(
     () => [
-      "Programa de desarrollo de competencias profesionales",
+      "Programa avanzado de competencias profesionales",
       "Curso Admin. Empresas de Manufactura con Enfoque TOC",
       "Curso Admin. de Proyectos con el Enfoque de Cadena Crítica",
       "Curso Análisis y Solución de Problemas",
@@ -138,7 +138,7 @@ export default function CouponRequestModal({
         icon: "success",
         title: "Solicitud recibida",
         text:
-          "Hemos recibido tu solicitud pronto te enviaremos tu cupon para tu descuento con el podras acceder al paso 2.",
+          "Hemos recibido tu solicitud pronto te enviaremos tu cupón para tu descuento con el podras acceder al paso 2.",
         confirmButtonText: "Entendido",
         confirmButtonColor: "#1e3a8a",
         background: "#0b1f4a",
@@ -238,7 +238,7 @@ export default function CouponRequestModal({
 
                 <div>
                   <label className="block text-gray-700 mb-2">
-                    Teléfono (con código de país)
+                    Teléfono (con código de país) *
                   </label>
                   <PhoneInput
                     defaultCountry="mx"
@@ -249,6 +249,7 @@ export default function CouponRequestModal({
                     className="w-full"
                     inputClassName="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent"
                     placeholder="Ingresa tu número"
+                    required
                   />
                 </div>
 
@@ -385,7 +386,7 @@ export default function CouponRequestModal({
 
                   <ul className="mt-3 space-y-2 text-sm text-gray-600 list-disc pl-5">
                     <li>Revisa también “Promociones” o “Spam”.</li>
-                    <li>El cupón puede tardar unos minutos en llegar.</li>
+                    <li>El cupón puede tardar tiempo en llegar.</li>
                     <li>Si no te llega, vuelve a solicitarlo o contáctanos.</li>
                   </ul>
                 </div>

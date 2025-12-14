@@ -132,8 +132,8 @@ export function Programas() {
       {/* Main */}
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
-            <aside className="lg:col-span-7">
+          <div className="grid lg:grid-cols-12 gap-8 items-start justify-items-center">
+            <aside className="w-full lg:col-span-8 lg:col-start-3">
               <div className="bg-white rounded-2xl shadow-md overflow-hidden">
                 <div className="relative">
                   <img
@@ -343,6 +343,7 @@ export function Programas() {
 
                 <div className="space-y-4">
                   <div className="space-y-2">
+                    <h2 className="text-xl text-[#1e3a8a] font-semibold">El programa incluye:</h2>
                     <h3 className="text-xl text-[#1e3a8a]">
                       1. Administración de Empresas de Manufactura con el enfoque de Teoría de Restricciones (TOC)
                     </h3>

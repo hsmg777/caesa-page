@@ -1,7 +1,7 @@
 from marshmallow import Schema, fields, validate
 
 PRODUCTOS_VALIDOS = [
-    "Información programas",
+    "Programa avanzado de competencias profesionales",
     "Curso Admin. Empresas de Manufactura con Enfoque TOC",
     "Curso Admin. de Proyectos con el Enfoque de Cadena Crítica",
     "Curso Análisis y Solución de Problemas",

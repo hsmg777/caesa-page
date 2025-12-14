@@ -304,7 +304,7 @@ export function Contacto() {
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3b82f6] focus:border-transparent"
                   >
-                    <option value="Programa Desarrollo de Competencias Profesionales">Programa Desarrollo de Competencias Profesionales</option>
+                    <option value="Programa avanzado de competencias profesionales">Programa avanzado de competencias profesionales</option>
                     <option value="Curso Admin. Empresas de Manufactura con Enfoque TOC">Curso Admin. Empresas de Manufactura con Enfoque TOC</option>
                     <option value="Curso Admin. de Proyectos con el Enfoque de Cadena Crítica">Curso Admin. de Proyectos con el Enfoque de Cadena Crítica</option>
                     <option value="Curso Análisis y Solución de Problemas">Curso Análisis y Solución de Problemas</option>

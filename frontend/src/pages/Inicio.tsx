@@ -129,41 +129,6 @@ export function Inicio({ onNavigate }: InicioProps) {
       return () => window.clearInterval(intervalId);
     }, []);
 
-
-
-  const cursos = [
-    {
-      nombre: 'Administración de Empresas de Manufactura con Enfoque TOC',
-      descripcion: 'Aprende a optimizar recursos y eliminar cuellos de botella aplicando la Teoría de Restricciones. Incluye simulador de producción y análisis del libro "La Meta".',
-      precio: '$147 USD',
-      descuento: '50%',
-      linkHotmart: 'https://hotmart.com'
-    },
-    {
-      nombre: 'Administración de Proyectos con el Enfoque de Cadena Crítica (CCPM)',
-      descripcion: 'Domina la planeación y ejecución de proyectos eliminando la multitarea y reduciendo tiempos mediante la metodología de Cadena Crítica. Incluye software de simulación especializado.',
-      precio: '$147 USD',
-      descuento: '50%',
-      linkHotmart: 'https://hotmart.com'
-    },
-    {
-      nombre: 'Sistemas de Soporte para la Toma de Decisiones',
-      descripcion: 'Curso para aprender un método práctico, claro e intuitivo respaldado por un software didáctico y un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)— para tomar decisiones operativas, tácticas y estratégicas que incrementen la rentabilidad, optimicen recursos y mejoren los resultados de cualquier empresa, sin necesidad de conocimientos matemáticos avanzados.',
-      precio: '$197 USD',
-      descuento: '50%',
-      linkHotmart: 'https://hotmart.com'
-
-    },
-    {
-      nombre: 'Diplomado en Manufactura Esbelta',
-      descripcion: 'Programa integral de 5 módulos para dominar metodologías Lean, diseñado para analizar, diseñar y mejorar sistemas productivos reduciendo desperdicios.',
-      precio: '$497 USD',
-      descuento: '50%',
-      linkHotmart: 'https://hotmart.com'
-
-    },
-  ];
-
   const testimoniosFQF = [
   {
     nombre: 'Dr. Fernando Mata',
@@ -432,101 +397,7 @@ export function Inicio({ onNavigate }: InicioProps) {
           </div>
         </div>
       </section>
-      
-
-      {/* Cursos Destacados CON MAS CTAs */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl lg:text-4xl text-[#1e3a8a] mb-4">
-              Cursos Que Transformarán Tu Carrera Profesional
-            </h2>
-            <p className="text-xl text-gray-600">
-              Mejora tu perfil con nuestros cursos más populares
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            {cursos.map((curso, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col"
-            >
-              {/* Imagen */}
-              <div className="relative">
-                
-                {/* Badge descuento */}
-                <div className="absolute top-3 left-3 bg-yellow-400 text-[#1e3a8a] font-bold px-3 py-1 rounded-full text-xs shadow">
-                  {curso.descuento ? `-${curso.descuento} · Tiempo limitado` : "Tiempo limitado"}
-                </div>
-              </div>
-
-              <div className="p-6 flex-1 flex flex-col">
-                
-
-                <h3 className="text-[#1e3a8a] mb-2 py-5">{curso.nombre}</h3>
-
-                <p className="text-gray-600 text-sm mb-4 flex-1">{curso.descripcion}</p>
-
-                {/* Precio */}
-                <div className="mb-4">
-                  <span className="text-2xl text-[#3b82f6]">{curso.precio}</span>
-                  <p className="text-xs text-gray-500 mt-1">
-                    Oferta por tiempo limitado
-                  </p>
-                </div>
-
-                {/* Botones */}
-                <div className="space-y-2 mt-auto">
-
-                  <motion.a
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    href={curso.linkHotmart || "https://hotmart.com"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-2.5 rounded-lg hover:shadow-lg transition-all"
-                  >
-                    <span>Lo quiero ahora</span>
-                    <ExternalLink size={16} />
-                  </motion.a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => handleNavigate('cursos')}
-              className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all inline-flex items-center gap-2"
-            >
-              <Target size={24} />
-              <span>Ver TODOS los cursos</span>
-              <ArrowRight size={20} />
-            </motion.button>
-          </motion.div>
-        </div>
-      </section>
-
+  
       {/* Hero.tsx (o donde tengas el hero) */}
       <div className="mt-8 w-full">
         <HeroFounderHighlight
@@ -536,8 +407,6 @@ export function Inicio({ onNavigate }: InicioProps) {
           }}
         />
       </div>
-
-
 
       {/* Testimonios CON RESULTADOS */}
       <section className="py-20 bg-white">

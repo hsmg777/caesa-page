@@ -75,6 +75,25 @@ const BulletList = ({ items }: { items: string[] }) => (
   </div>
 );
 
+const renderDescripcionGeneral = (curso: Curso) => {
+  if (!curso?.descripcionGeneral) return null;
+
+  if (curso.id === 4) {
+    return curso.descripcionGeneral
+      .split(/\n\s*\n/) 
+      .filter(Boolean)
+      .map((bloque, i) => (
+        <p key={i} className="text-gray-700 leading-relaxed mb-4 last:mb-0">
+          {bloque}
+        </p>
+      ));
+  }
+
+  // otros cursos normal
+  return <p className="text-gray-700 leading-relaxed">{curso.descripcionGeneral}</p>;
+};
+
+
 export function Cursos() {
   const [categoriaFiltro, setCategoriaFiltro] = useState<string>("Todas");
   const [cursoSeleccionado, setCursoSeleccionado] = useState<Curso | null>(null);
@@ -726,6 +745,9 @@ export function Cursos() {
     });
   }, [cursos, categoriaFiltro]);
 
+ 
+
+
   return (
     <div className="pt-0">
       <section className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-16">
@@ -947,8 +969,12 @@ export function Cursos() {
               {/* ✅ NUEVO: Descripción general (si existe) */}
               {cursoSeleccionado.descripcionGeneral && (
                 <div>
-                  <SectionTitle icon={<BookOpen size={20} />} title="Descripción general" />
-                  <p className="text-gray-700 leading-relaxed">{cursoSeleccionado.descripcionGeneral}</p>
+                  {cursoSeleccionado.descripcionGeneral && (
+                    <div>
+                      <SectionTitle icon={<BookOpen size={20} />} title="Descripción general" />
+                      {renderDescripcionGeneral(cursoSeleccionado)}
+                    </div>
+                  )}
                 </div>
               )}
 
