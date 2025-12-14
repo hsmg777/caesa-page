@@ -1,4 +1,4 @@
-import { Instagram, Music2 } from 'lucide-react';
+import { Facebook, Instagram, Music2 } from 'lucide-react';
 
 type Page = 'inicio' | 'programas' | 'cursos' | 'sobre-nosotros' | 'contacto';
 
@@ -85,14 +85,15 @@ export function Footer({ onNavigate }: FooterProps) {
           <div>
             <h4 className="mb-4">Síguenos</h4>
             <div className="flex gap-4">
-              
+              <a href="https://www.facebook.com/profile.php?id=61584887993548&mibextid=wwXIfr&rdid=Mjsh5hF6AYDBAynd&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DNfivKyKb%2F%3Fmibextid%3DwwXIfr#" target='_blank' className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
+                <Facebook size={20} />
+              </a>
               <a href="https://www.instagram.com/caesagroup" target='_blank' className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
                 <Instagram size={20} />
               </a>
               <a href="https://www.tiktok.com/@caesa.group" target='_blank' className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors">
                 <Music2 size={20} />
               </a>
-              
             </div>
           </div>
         </div>

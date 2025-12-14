@@ -8,6 +8,12 @@ interface SobreNosotrosProps {
 }
 
 export function SobreNosotros({ onNavigate }: SobreNosotrosProps) {
+  const go = (page: Page) => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    setTimeout(() => onNavigate(page), 80);
+  };
+
+
 
   const founderImages = [
     {
@@ -223,13 +229,14 @@ export function SobreNosotros({ onNavigate }: SobreNosotrosProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => onNavigate('programas')}
+              onClick={() => go("programas")}
               className="bg-yellow-400 text-[#1e3a8a] px-8 py-4 rounded-lg hover:bg-yellow-300 transition-all"
             >
               Explorar programas
             </button>
+
             <button
-              onClick={() => onNavigate('cursos')}
+              onClick={() => go("cursos")}
               className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg hover:bg-white/30 transition-all border border-white/30"
             >
               Ver cursos

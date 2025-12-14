@@ -1,4 +1,4 @@
-import { Mail, Instagram, Send, MessageSquare, Music2 } from 'lucide-react';
+import { Mail, Instagram, Send, MessageSquare, Music2, Facebook } from 'lucide-react';
 import { useState } from 'react';
 import 'react-international-phone/style.css';
 import { PhoneInput } from 'react-international-phone';
@@ -419,6 +419,18 @@ export function Contacto() {
                 <h2 className="text-2xl text-[#1e3a8a] mb-6">Síguenos en redes sociales</h2>
                 
                 <div className="grid grid-cols-2 gap-4">
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61584887993548&mibextid=wwXIfr&rdid=Mjsh5hF6AYDBAynd&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DNfivKyKb%2F%3Fmibextid%3DwwXIfr#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-4 bg-pink-50 rounded-lg hover:bg-pink-100 transition-colors group"
+                  >
+                    <Facebook className="text-[#1e3a8a] group-hover:scale-110 transition-transform" size={24} />
+                    <div>
+                      <div className="text-[#1e3a8a]">Facebook</div>
+                      <div className="text-xs text-gray-500">CAESA Group </div>
+                    </div>
+                  </a>
                   <a
                     href="https://www.instagram.com/caesagroup"
                     target="_blank"

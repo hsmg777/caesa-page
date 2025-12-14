@@ -55,13 +55,13 @@ export function Programas() {
 
   const programa: Programa = {
     id: 1,
-    nombre: "Programa: Desarrollo de Competencias Profesionales",
+    nombre: "Programa Avanzado de Competencias Profesionales",
     descripcion:
       "Ha sido diseñado para fortalecer habilidades que las empresas modernas valoran: pensamiento crítico, liderazgo, metodologías de mejora, administración de proyectos y toma de decisiones efectivas. Cada curso ofrece formación complementaria que impulsa la empleabilidad y acelera el crecimiento profesional.",
     duracion: "8 cursos y 1 diplomado.",
     nivel: "Intermedio",
     modalidad: "Online",
-    precio: "$997",
+    precio: "$997 USD",
     beneficios: [
       "Mayor empleabilidad y preparación para puestos gerenciales",
       "Certificados profesionales individuales por curso",
@@ -69,15 +69,15 @@ export function Programas() {
       "Habilidades para la toma de decisiones basada en datos",
     ],
     modulos: [
-      "Curso 1: Admin. de Manufactura con Teoría de Restricciones (TOC)",
-      "Curso 2: Administración de Proyectos con Cadena Crítica (CCPM)",
-      "Curso 3: Sistemas de Soporte a Decisiones (VGCM)",
-      "Curso 4: Análisis y Solución de Problemas (Causa Raíz)",
-      "Curso 5: Pensamiento Crítico y Toma de Decisiones",
-      "Curso 6: Liderazgo, Trabajo en Equipo y Gestión del Tiempo",
-      "Curso 7: Evaluación Económica de Proyectos (ROI, VPN, TIR)",
-      "Curso 8: Mejora Continua (Lean, Kaizen, PDCA)",
-      "Diplomado en Manufactura Esbelta (Incluye VSM y Estrategia)",
+      "Curso 1: Admin. de empresas de manufactura con enfoque de teoría de restricciones (TOC)",
+      "Curso 2: Administración de Proyectos con el enfoque de Cadena Crítica (CCPM)",
+      "Curso 3: Sistemas de Soporte para la toma de decisiones",
+      "Curso 4: Análisis y Solución de Problemas ",
+      "Curso 5: Pensamiento Crítico ",
+      "Curso 6: Liderazgo, Trabajo en Equipo y Administración del tiempo",
+      "Curso 7: Evaluación Económica de Proyectos",
+      "Curso 8: Mejora Continua",
+      "Diplomado en Manufactura Esbelta (5 modulos)",
     ],
     incluye: [
       "Simuladores interactivos con software didáctico",
@@ -139,14 +139,9 @@ export function Programas() {
                   <img
                     src={programa.imageUrl}
                     alt={programa.nombre}
-                    className="h-56 w-full object-cover"
+                    className="h-80 w-full object-cover"
                     loading="lazy"
                   />
-
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-2 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-sm text-[#1e3a8a] shadow">
-                    <GraduationCap size={16} />
-                    <span>{programa.nivel}</span>
-                  </div>
                 </div>
 
                 <div className="p-6 space-y-6">
@@ -245,7 +240,14 @@ export function Programas() {
                       💰 Precio con descuento por tiempo limitado
                     </p>
 
-                    <div className="mt-4">
+                    <div className="mt-4 space-y-2">
+                        <button
+                        onClick={() => setProgramaSeleccionado(programa)}
+                        className="w-full bg-gray-100 text-[#1e3a8a] py-3 rounded-lg hover:bg-gray-200 transition-colors"
+                      >
+                        Ver detalles del programa
+                      </button>
+
                       <button
                         onClick={() => setOpenCouponModal(true)}
                         className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-3 rounded-lg hover:shadow-lg transition-all"
@@ -260,77 +262,6 @@ export function Programas() {
                 </div>
               </div>
             </aside>
-
-            {/* DERECHA: Card del curso (con precio) */}
-            <div className="lg:col-span-5">
-              <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all overflow-hidden sticky top-24">
-                <div className="p-6 space-y-5">
-                  <div>
-                    <div className="inline-flex items-center gap-2 bg-blue-100 text-[#1e3a8a] px-3 py-1 rounded-full text-sm">
-                      <GraduationCap size={16} />
-                      Curso destacado
-                    </div>
-
-                    <h3 className="text-[#1e3a8a] text-2xl mt-3">
-                      {programa.curso.nombre}
-                    </h3>
-
-                    <p className="text-gray-600 mt-2">
-                      Instructor: {programa.curso.instructor}
-                      <br />
-                      Organiza: {programa.curso.organiza}
-                    </p>
-                  </div>
-
-                  {/* Chips */}
-                  <div className="flex flex-wrap gap-2">
-                    <div className="flex items-center gap-1 text-sm text-gray-700 bg-gray-100 px-3 py-1 rounded-full">
-                      <Clock size={14} />
-                      <span>{programa.curso.duracion}</span>
-                    </div>
-                  </div>
-
-                  {/* Objetivo (preview) */}
-                  <div className="bg-gray-50 rounded-xl p-4">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Target size={18} className="text-[#1e3a8a]" />
-                      <span className="text-[#1e3a8a] font-semibold">
-                        Objetivo del curso
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-700">{programa.curso.objetivo}</p>
-                  </div>
-
-                  {/* Precio curso (✅ no olvidado) */}
-                  <div className="p-4 rounded-xl border bg-white">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <span className="text-gray-600 text-sm">Precio del curso</span>
-                      <span className="text-2xl text-[#1e3a8a] font-semibold">
-                        {programa.curso.precio}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Botones */}
-                  <div className="space-y-2">
-                    <button
-                      onClick={() => setProgramaSeleccionado(programa)}
-                      className="w-full bg-gray-100 text-[#1e3a8a] py-3 rounded-lg hover:bg-gray-200 transition-colors"
-                    >
-                      Ver detalles del curso
-                    </button>
-
-                    <button
-                      onClick={() => setOpenCouponModal(true)}
-                      className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-3 rounded-lg hover:shadow-lg transition-all"
-                    >
-                      <span>Solicitar cupón / Inscribirme</span>
-                      <Tag size={18} />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Bonus / Cupón */}
@@ -345,149 +276,170 @@ export function Programas() {
 
           {/* Modal de Detalles (desglosado + precio) */}
           {programaSeleccionado && (
-            <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
-              <div className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
-                <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
-                  <div>
-                    <h2 className="text-2xl text-[#1e3a8a]">
-                      Curso: {programaSeleccionado.curso.nombre}
-                    </h2>
-                    <p className="text-sm text-gray-600">
-                      Programa: {programaSeleccionado.nombre}
+          <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto">
+            <div className="bg-white rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="sticky top-0 bg-white border-b px-6 py-4 flex justify-between items-center">
+                <div>
+                  <h2 className="text-2xl text-[#1e3a8a]">
+                    Programa de Desarrollo de Competencias Profesionales
+                  </h2>
+                </div>
+
+                <button
+                  onClick={() => setProgramaSeleccionado(null)}
+                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="p-6 space-y-8 text-gray-700">
+                <div className="space-y-3">
+                  <h3 className="text-xl text-[#1e3a8a]">Introducción</h3>
+                  <p>
+                    El Programa de Desarrollo de Competencias Profesionales ha sido diseñado para jóvenes profesionistas, recién
+                    egresados y colaboradores con experiencia intermedia que desean acelerar su crecimiento profesional. Este
+                    programa integra cursos prácticos que no suelen enseñarse en la universidad, pero que son altamente valorados
+                    por empresas nacionales e internacionales.
+                  </p>
+                  <p>
+                    Los participantes desarrollarán habilidades que les permitirán destacar en procesos de selección,
+                    desempeñarse exitosamente en roles clave y obtener ascensos basados en resultados tangibles.
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  <h3 className="text-xl text-[#1e3a8a]">Desafios actuales</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Falta de experiencia práctica para resolver problemas reales.</li>
+                    <li>Escasas oportunidades de ascenso.</li>
+                    <li>Dificultad para tomar decisiones basadas en datos.</li>
+                    <li>Poca exposición a metodologías modernas como Lean, TOC, CCPM.</li>
+                    <li>Falta de habilidades de liderazgo y pensamiento estratégico.</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  <h3 className="text-xl text-[#1e3a8a]">Aspiraciones Profesionales</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Avanzar más rápido en su carrera.</li>
+                    <li>Ser un profesionista altamente valorado.</li>
+                    <li>Lograr ascensos y reconocimiento.</li>
+                    <li>Obtener certificaciones profesionales.</li>
+                    <li>Liderar proyectos con impacto empresarial.</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-3">
+                  <h3 className="text-xl text-[#1e3a8a]">Beneficios al Completar el Programa</h3>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li>Mayor empleabilidad.</li>
+                    <li>Certificados profesionales por curso.</li>
+                    <li>Dominio de metodologías prácticas aplicables desde el primer día.</li>
+                    <li>Habilidades técnicas, estratégicas y de liderazgo.</li>
+                    <li>Preparación sólida para puestos gerenciales.</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">
+                      1. Administración de Empresas de Manufactura con el enfoque de Teoría de Restricciones (TOC)
+                    </h3>
+                    <p>
+                      Curso práctico basado en los principios desarrollados por Eliyahu Goldratt, para identificar cuellos de
+                      botella, gestionar flujo y mejorar entregas. Incluye simulaciones con software didáctico. Beneficio clave:
+                      aumentar capacidad de producción y mejorar plazos de entrega.
                     </p>
                   </div>
 
-                  <button
-                    onClick={() => setProgramaSeleccionado(null)}
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                  >
-                    <X size={24} />
-                  </button>
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">2. Administración de Proyectos con Cadena Crítica (CCPM)</h3>
+                    <p>
+                      Enfocado en planear y ejecutar proyectos sin retrasos. Enseña uso de buffers y coordinación de recursos.
+                      Incluye simulador interactivo de proyectos. Beneficio clave: ejecutar proyectos más rápido y con menos
+                      conflictos.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">3. Sistemas de Soporte para la Toma de Decisiones (VGCM)</h3>
+                    <p>
+                      Basado en el algoritmo de Velocidad de Generación de Contribución Marginal, desarrollado por CAESA GROUP.
+                      Ayuda a analizar decisiones en ventas, compras y producción para maximizar contribución marginal. Beneficio
+                      clave: tomar decisiones que aumentan resultados financieros.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">4. Análisis y Solución de Problemas</h3>
+                    <p>
+                      Curso basado en enfoque científico para analizar causas raíz, validar hipótesis y resolver problemas reales.
+                      Beneficio clave: soluciones verificables y sostenibles.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">5. Pensamiento Crítico</h3>
+                    <p>
+                      Desarrolla habilidades cognitivas avanzadas para evaluar información, cuestionar supuestos y tomar decisiones
+                      racionales. Beneficio clave: claridad mental en entornos complejos.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">
+                      6. Liderazgo, Trabajo en Equipo y Administración del Tiempo
+                    </h3>
+                    <p>
+                      Desarrolla habilidades humanas para dirigir equipos, comunicar con impacto y administrar prioridades.
+                      Beneficio clave: convertirse en líder confiable y orientado a resultados.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">7. Evaluación Económica de Proyectos</h3>
+                    <p>
+                      Introduce métodos financieros como VPN, TIR, ROI y VAE para evaluar inversiones personales y empresariales.
+                      Beneficio clave: decisiones financieras inteligentes.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">8. Mejora Continua</h3>
+                    <p>
+                      Integra metodologías Lean, Kaizen y PDCA, más la metodología CAESA aplicada en empresas reales. Beneficio
+                      clave: resultados visibles en eficiencia, productividad y costos.
+                    </p>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h3 className="text-xl text-[#1e3a8a]">9. Diplomado en Manufactura Esbelta</h3>
+                    <p>
+                      Programa completo de 5 módulos: Estrategia, VSM, Indicadores, Técnicas Lean y Técnicas de Implementación.
+                      Incluye Certificado adicional Lean Practitioner. Beneficio clave: dominio profundo de Lean aplicado a
+                      procesos industriales.
+                    </p>
+                  </div>
                 </div>
 
-                <div className="p-6 space-y-8">
-                  {/* Datos base + Precio */}
-                  <div className="grid md:grid-cols-4 gap-4">
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Users className="text-[#1e3a8a]" size={18} />
-                        <span className="text-[#1e3a8a] font-semibold">
-                          Instructor
-                        </span>
-                      </div>
-                      <p className="text-gray-700">{programaSeleccionado.curso.instructor}</p>
-                    </div>
-
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Clock className="text-[#1e3a8a]" size={18} />
-                        <span className="text-[#1e3a8a] font-semibold">Duración</span>
-                      </div>
-                      <p className="text-gray-700">{programaSeleccionado.curso.duracion}</p>
-                    </div>
-
-                    <div className="bg-blue-50 p-4 rounded-lg">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Award className="text-[#1e3a8a]" size={18} />
-                        <span className="text-[#1e3a8a] font-semibold">Organiza</span>
-                      </div>
-                      <p className="text-gray-700">{programaSeleccionado.curso.organiza}</p>
-                    </div>
-
-                    <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Tag className="text-[#1e3a8a]" size={18} />
-                        <span className="text-[#1e3a8a] font-semibold">Precio</span>
-                      </div>
-                      <p className="text-gray-800 font-semibold text-xl">
-                        {programaSeleccionado.curso.precio}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Objetivo */}
-                  <div className="bg-white border rounded-xl p-6">
-                    <h3 className="text-xl text-[#1e3a8a] mb-3 flex items-center gap-2">
-                      <Target size={22} />
-                      Objetivo del curso
-                    </h3>
-                    <p className="text-gray-700">{programaSeleccionado.curso.objetivo}</p>
-                  </div>
-
-                  {/* Descripción general (por párrafos) */}
-                  <div className="bg-white border rounded-xl p-6">
-                    <h3 className="text-xl text-[#1e3a8a] mb-3">Descripción general</h3>
-                    <div className="space-y-3 text-gray-700">
-                      {programaSeleccionado.curso.descripcionGeneral
-                        .split("\n\n")
-                        .filter(Boolean)
-                        .map((p, idx) => (
-                          <p key={idx}>{p}</p>
-                        ))}
-                    </div>
-                  </div>
-
-                  {/* Propuesta imágenes */}
-                  <div className="bg-gray-50 rounded-xl p-6">
-                    <h3 className="text-xl text-[#1e3a8a] mb-3">
-                      Propuesta de imágenes para promoción
-                    </h3>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {programaSeleccionado.curso.propuestaImagenes.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <CheckCircle
-                            size={18}
-                            className="text-[#3b82f6] mt-0.5 flex-shrink-0"
-                          />
-                          <span className="text-gray-700">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Instructor (texto completo, por párrafos) */}
-                  <div className="bg-white border rounded-xl p-6">
-                    <h3 className="text-xl text-[#1e3a8a] mb-3">
-                      Descripción del Instructor
-                    </h3>
-                    <div className="space-y-3 text-gray-700">
-                      {programaSeleccionado.curso.instructorDescripcion
-                        .split("\n\n")
-                        .filter(Boolean)
-                        .map((p, idx) => (
-                          <p key={idx}>{p}</p>
-                        ))}
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white p-6 rounded-xl">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-                      <div>
-                        <p className="text-blue-100">{programaSeleccionado.curso.cta}</p>
-                        <p className="text-white font-semibold mt-3">
-                          Precio: {programaSeleccionado.curso.precio}
-                        </p>
-                      </div>
-
-                      <button
-                        onClick={() => {
-                          setProgramaSeleccionado(null);
-                          setOpenCouponModal(true);
-                        }}
-                        className="inline-flex items-center gap-2 bg-yellow-400 text-[#1e3a8a] px-8 py-4 rounded-lg hover:bg-yellow-300 transition-all whitespace-nowrap font-semibold"
-                      >
-                        <span>Solicitar cupón / Inscribirme</span>
-                        <Tag size={20} />
-                      </button>
-                    </div>
-                  </div>
-
-                  <p className="text-xs text-gray-500">{programaSeleccionado.curso.footer}</p>
+                <div className="space-y-3">
+                  <h3 className="text-xl text-[#1e3a8a]">Conclusión</h3>
+                  <p>
+                    Este programa prepara profesionistas completos, capaces de aportar valor estratégico, mejorar procesos, liderar
+                    equipos y tomar decisiones inteligentes. Ideal para quienes buscan ascensos, cambios de rol o mayor
+                    competitividad profesional.
+                  </p>
                 </div>
+
+                <p className="text-sm text-gray-600">
+                  © CAESA GROUP | www.caesagroup.com | contacto@caesagroup.com
+                </p>
               </div>
             </div>
-          )}
+          </div>
+        )}
+
         </div>
       </section>
     </div>

@@ -156,12 +156,6 @@ export function Cursos() {
         "Experiencia internacional en el Institute of Industrial and Systems Engineers (IISE).",
       ],
 
-      propuestaVisualBullets: [
-        "Colores institucionales: azul marino, blanco y gris.",
-        "Elementos gráficos: fotografías de plantas de manufactura modernas, gráficos de flujo de procesos y equipos de trabajo colaborando.",
-        "Iconografía: engranajes, cadena de producción, reloj (tiempo de ciclo) y certificación.",
-      ],
-
       testimonio: {
         texto:
           "Los proyectos trabajados con CAESA Group junto con Felipe Quintanilla nos han brindado herramientas estratégicas para nuestro negocio que nos facilitan la toma de decisiones y aumentan nuestra capacidad de obtener mayores márgenes con menor esfuerzo. Hemos logrado visualizar nuestro balanceo de líneas de nuestro proceso y así establecer estrategias para mejorar nuestra capacidad de manera efectiva. Nuestros accionistas están altamente satisfechos con el trabajo y se espera que con los 3 proyectos elaborados mejoremos drásticamente nuestro resultado general para el año 2023.",
@@ -237,13 +231,7 @@ export function Cursos() {
         "Su misión es ayudar a profesionistas a desarrollar competencias que impulsen su crecimiento laboral.",
       ],
 
-      propuestaVisualBullets: [
-        "Equipos de trabajo colaborando en proyectos.",
-        "Tableros visuales tipo 'buffer fever chart'.",
-        "Comparaciones visuales: Método Tradicional vs Cadena Crítica.",
-        "Iconografía: buffers, enfoque, cadena, recursos y tiempos.",
-        "Mockups del software didáctico utilizado en el curso.",
-      ],
+    
 
       highlights: [
         "Cadena Crítica (CCPM)",
@@ -259,76 +247,77 @@ export function Cursos() {
       footerWeb: "www.caesagroup.com",
       footerEmail: "contacto@caesagroup.com",
     },
-
     {
       id: 3,
-      nombre: "Análisis y Solución de Problemas",
+      nombre: "Sistemas de Soporte para la Toma de Decisiones",
       descripcion:
-        "Curso para identificar, analizar y resolver problemas de manera estructurada y científica, utilizando herramientas profesionales para generar mejoras sostenibles en cualquier organización.",
+        "Curso para aprender un método práctico, claro e intuitivo —respaldado por un software didáctico y un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)— para tomar decisiones operativas, tácticas y estratégicas que incrementen la rentabilidad, optimicen recursos y mejoren los resultados de cualquier empresa, sin necesidad de conocimientos matemáticos avanzados.",
       duracion: "A ritmo propio",
-      categoria: "Mejora Continua y Calidad",
-      precio: "$97 USD",
+      categoria: "Estrategia y Negocios",
+      precio: "$197 USD",
       objetivos: [
-        "Identificar, analizar y resolver problemas de manera estructurada y científica",
-        "Usar herramientas profesionales como estratificación, diagrama causa–efecto, validación con 5W+1H, análisis de datos y estandarización",
-        "Seleccionar correctamente un problema y describirlo con precisión",
-        "Analizar causas probables mediante hechos y datos, validar científicamente la causa raíz y establecer acciones de mejora con resultados sostenibles",
+        "Tomar decisiones operativas, tácticas y estratégicas usando un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)",
+        "Incrementar la rentabilidad, optimizar recursos y mejorar resultados sin necesidad de conocimientos matemáticos avanzados",
+        "Simular decisiones reales en Mercadotecnia, Producción, Compras y Finanzas usando un software didáctico especializado",
+        "Equilibrar capacidad, demanda y rentabilidad tomando decisiones basadas en datos",
       ],
       dirigidoA: [
-        "Organizaciones que enfrentan problemas operativos, de calidad, productividad, tiempos o costos",
-        "Personas que buscan dejar de resolver problemas mediante intuición o acciones aisladas",
+        "Profesionistas que toman decisiones operativas, tácticas y estratégicas en una empresa",
+        "Personas que buscan un método práctico basado en datos para tomar mejores decisiones en menos tiempo",
       ],
       linkHotmart: "https://hotmart.com",
-      imageUrl: "/images/anaysol.png",
+      imageUrl: "/images/decisiones.png",
 
       nombrePrograma: "Programa de Desarrollo de Competencias Profesionales",
       instructor: "Felipe Quintanilla Flores",
       organiza: "CAESA GROUP – Generando Valor",
 
       objetivoCurso:
-        "Desarrollar en los participantes la capacidad de identificar, analizar y resolver problemas de manera estructurada y científica, utilizando herramientas profesionales como estratificación, diagrama causa–efecto, validación con 5W+1H, análisis de datos y estandarización, para generar mejoras sostenibles en cualquier organización.",
+        "Brindar a los participantes un método práctico, claro e intuitivo —respaldado por un software didáctico y por un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)— para tomar decisiones operativas, tácticas y estratégicas que incrementen la rentabilidad, optimicen recursos y mejoren los resultados de cualquier empresa, sin necesidad de conocimientos matemáticos avanzados.",
 
       descripcionGeneral:
-        "Todas las organizaciones enfrentan problemas operativos, de calidad, productividad, tiempos o costos. Sin embargo, la mayoría intenta resolverlos mediante intuición o acciones aisladas, lo que genera soluciones temporales y poco efectivas.\n\nEste curso presenta una metodología científica y probada que ha sido utilizada por CAESA Group en numerosos proyectos empresariales. Los participantes aprenderán a seleccionar correctamente un problema, describirlo con precisión, analizar sus causas probables mediante hechos y datos, validar científicamente la causa raíz y establecer acciones de mejora que generen resultados sostenibles.\n\nEl contenido se basa en herramientas profesionales como estratificación, hojas de recolección de datos, diagrama causa–efecto, análisis 5W+1H, metas SMART, planes de acción y estandarización. El curso incluye ejercicios, casos reales y plantillas listas para usar en el entorno laboral.",
+        "Todas las empresas toman decisiones todos los días: qué producir, qué vender, dónde asignar recursos, cuáles órdenes aceptar, qué clientes priorizar y cómo equilibrar capacidad, demanda y rentabilidad. Sin embargo, la mayoría toma estas decisiones basándose en intuición, experiencia o información parcial, lo que provoca pérdidas, retrasos, cuellos de botella, baja rentabilidad y decisiones incongruentes entre departamentos.\n\nPara resolver este problema, este curso introduce un Sistema de Soporte para la Toma de Decisiones (SSTD) que integra información clave de demanda, costos marginales, capacidades, tiempos de proceso y prioridades estratégicas, utilizando un algoritmo de priorización —basado en la Velocidad de Generación de Contribución Marginal (VGCM)— como motor central.\n\nAdemás, los participantes utilizarán un software didáctico especializado, el cual les permitirá simular decisiones reales en Mercadotecnia, Producción, Compras y Finanzas, analizando su impacto directo en los estados financieros y en la contribución marginal total.\n\nEste curso es totalmente introductorio, intuitivo, práctico y aplicable para cualquier profesionista. Al finalizar, los participantes habrán aprendido un método único, basado en datos, para tomar mejores decisiones en menos tiempo.",
 
       beneficios: [
-        "Adquirir una metodología científica y práctica para resolver problemas de forma efectiva en tu organización",
-        "Aprender a validar científicamente la causa raíz",
-        "Establecer acciones de mejora que generen resultados sostenibles",
-        "Utilizar herramientas profesionales y plantillas listas para usar en el entorno laboral",
+        "Aprender a tomar decisiones basadas en datos usando un algoritmo profesional y un simulador interactivo",
+        "Tomar mejores decisiones en menos tiempo mediante un método único basado en datos",
+        "Incrementar la rentabilidad, optimizar recursos y mejorar resultados",
+        "Simular decisiones reales y analizar su impacto directo en los estados financieros y en la contribución marginal total",
       ],
 
       materialComplementario: [
-        "Ejercicios",
-        "Casos reales",
-        "Plantillas listas para usar en el entorno laboral",
+        "Software didáctico especializado",
       ],
 
       perfilInstructorTitulo: "Descripción del Instructor",
       perfilInstructorBullets: [
+        "Creador del concepto Velocidad de Generación de Contribución Marginal (VGCM).",
+        "Fundador y Director General de CAESA GROUP.",
+        "Con más de 40 años de experiencia, ha liderado más de 500 proyectos empresariales.",
+        "Ha capacitado a más de 1,500 profesionistas.",
+        "Ha desarrollado Sistemas de Soporte para la Toma de Decisiones utilizados ampliamente en la industria.",
         "Maestro en Investigación de Operaciones por Georgia Tech.",
-        "Cuenta con más de 40 años de experiencia impartiendo cursos y liderando proyectos de mejora.",
-        "Como Director de la carrera de Ingeniería Industrial y de Sistemas del Tecnológico de Monterrey, coordinó más de 500 proyectos reales aplicando metodologías de análisis y solución de problemas.",
-        "Su enfoque combina pensamiento crítico, herramientas profesionales y experiencia práctica para lograr soluciones efectivas y sostenibles.",
+        "Exdirector de la carrera de Ingeniería Industrial y de Sistemas del Tec de Monterrey durante 15 años.",
+        "Combina teoría avanzada con aplicaciones prácticas simples y poderosas para transformar la forma en que las empresas toman decisiones.",
       ],
 
-      propuestaVisualBullets: [
-        "Diagramas causa–efecto.",
-        "Gráficos de estratificación y Pareto.",
-        "Equipos analizando datos.",
-        "Indicadores de calidad y productividad.",
-        "Personas trabajando en resolución de problemas.",
-      ],
+      testimonio: {
+        texto:
+          "Caesa Group desempeñó un rol de soporte estratégico en uno de nuestros proyectos de transformación mediante intervenciones tácticas, aplicando herramientas Lean con un enfoque holístico complementando así nuestras capacidades internas y co-creando con nosotros un mapa de ruta para futuros desarrollos.",
+        autor: "Edgar García",
+        cargo: "Plant Manager",
+        empresa: "Nemak",
+      },
 
       highlights: [
-        "Metodología científica",
-        "5W+1H",
-        "Diagrama causa–efecto",
-        "Estratificación y Pareto",
+        "Algoritmo basado en VGCM",
+        "Software didáctico especializado",
+        "Decisiones operativas, tácticas y estratégicas",
+        "Método introductorio e intuitivo",
       ],
 
       ctaTexto:
-        "Inscríbete al curso 'Análisis y Solución de Problemas' y adquiere una metodología científica y práctica para resolver problemas de forma efectiva en tu organización.",
+        "Inscríbete al curso 'Sistemas de Soporte para la Toma de Decisiones' y aprende a tomar decisiones basadas en datos usando un algoritmo profesional y un simulador interactivo. Obtén tu constancia de participación y una ventaja real en tu formación profesional.",
 
       footerBrand: "© CAESA GROUP",
       footerWeb: "www.caesagroup.com",
@@ -440,14 +429,6 @@ export function Cursos() {
         "Ha guiado a cientos de profesionistas en el análisis económico de proyectos, combinando claridad, rigor conceptual y herramientas prácticas que permiten aplicar de inmediato los conceptos aprendidos.",
       ],
 
-      propuestaVisualBullets: [
-        "Gráficos de flujos de efectivo.",
-        "Fórmulas simples de VPN, TIR y VAE.",
-        "Representaciones del concepto 'valor del dinero en el tiempo'.",
-        "Gráficas del crecimiento exponencial del interés compuesto.",
-        "Imágenes de personas evaluando alternativas de inversión.",
-      ],
-
       highlights: [
         "VPN, TIR, VAE, VF y ROI",
         "Valor del dinero en el tiempo",
@@ -516,16 +497,7 @@ export function Cursos() {
         "Con más de 40 años formando profesionistas y líderes, combina pensamiento crítico, principios universales y experiencia empresarial para impulsar el crecimiento de sus alumnos.",
         "Su misión: formar líderes que inspiren, colaboren y eleven a quienes los rodean.",
       ],
-
-      propuestaVisualBullets: [
-        "Líder guiando a un equipo.",
-        "Manos unidas representando sinergia.",
-        "Camino dividido entre liderazgo reactivo vs proactivo.",
-        "Matriz importante/urgente.",
-        "Equipos colaborando en espacios modernos.",
-        "Metáforas visuales de confianza.",
-      ],
-
+  
       highlights: [
         "Los 7 Hábitos de la Gente Altamente Efectiva",
         "Confiar e Inspirar",
@@ -593,16 +565,6 @@ export function Cursos() {
         "Fundador de CAESA GROUP desde 1996.",
         "Ha implementado metodologías prácticas de mejora que permiten a las empresas aumentar capacidad, reducir costos, mejorar productividad y fortalecer su cultura organizacional.",
       ],
-
-      propuestaVisualBullets: [
-        "Ciclo PDCA (Plan–Do–Check–Act).",
-        "Engranes representando procesos sincronizados.",
-        "Tableros visuales de desempeño.",
-        "Equipos realizando sesiones de mejora.",
-        "Iconos de desperdicio (Lean).",
-        "Estándares visuales y rutas de proceso.",
-      ],
-
       highlights: [
         "PDCA, Kaizen y Ciclo de la Calidad",
         "Metodología práctica CAESA GROUP",
@@ -665,14 +627,7 @@ export function Cursos() {
         "Su misión: enseñar a pensar mejor para vivir y decidir mejor.",
       ],
 
-      propuestaVisualBullets: [
-        "Cerebro formado por engranes (razonamiento).",
-        "Lupa sobre ideas (evaluación crítica).",
-        "Camino dividido entre evidencia y creencias.",
-        "Representación visual de correlación vs causalidad.",
-        "Ilusiones ópticas o efectos perceptuales.",
-        "Iconografía relacionada con ciencia, lógica y pensamiento.",
-      ],
+     
 
       highlights: [
         "Estándares Intelectuales Universales",
@@ -690,89 +645,72 @@ export function Cursos() {
     },
     {
       id: 9,
-      nombre: "Sistemas de Soporte para la Toma de Decisiones",
+      nombre: "Análisis y Solución de Problemas",
       descripcion:
-        "Curso para aprender un método práctico, claro e intuitivo —respaldado por un software didáctico y un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)— para tomar decisiones operativas, tácticas y estratégicas que incrementen la rentabilidad, optimicen recursos y mejoren los resultados de cualquier empresa, sin necesidad de conocimientos matemáticos avanzados.",
+        "Curso para identificar, analizar y resolver problemas de manera estructurada y científica, utilizando herramientas profesionales para generar mejoras sostenibles en cualquier organización.",
       duracion: "A ritmo propio",
-      categoria: "Estrategia y Negocios",
-      precio: "$197 USD",
+      categoria: "Mejora Continua y Calidad",
+      precio: "$97 USD",
       objetivos: [
-        "Tomar decisiones operativas, tácticas y estratégicas usando un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)",
-        "Incrementar la rentabilidad, optimizar recursos y mejorar resultados sin necesidad de conocimientos matemáticos avanzados",
-        "Simular decisiones reales en Mercadotecnia, Producción, Compras y Finanzas usando un software didáctico especializado",
-        "Equilibrar capacidad, demanda y rentabilidad tomando decisiones basadas en datos",
+        "Identificar, analizar y resolver problemas de manera estructurada y científica",
+        "Usar herramientas profesionales como estratificación, diagrama causa–efecto, validación con 5W+1H, análisis de datos y estandarización",
+        "Seleccionar correctamente un problema y describirlo con precisión",
+        "Analizar causas probables mediante hechos y datos, validar científicamente la causa raíz y establecer acciones de mejora con resultados sostenibles",
       ],
       dirigidoA: [
-        "Profesionistas que toman decisiones operativas, tácticas y estratégicas en una empresa",
-        "Personas que buscan un método práctico basado en datos para tomar mejores decisiones en menos tiempo",
+        "Organizaciones que enfrentan problemas operativos, de calidad, productividad, tiempos o costos",
+        "Personas que buscan dejar de resolver problemas mediante intuición o acciones aisladas",
       ],
       linkHotmart: "https://hotmart.com",
-      imageUrl: "/images/decisiones.png",
+      imageUrl: "/images/anaysol.png",
 
       nombrePrograma: "Programa de Desarrollo de Competencias Profesionales",
       instructor: "Felipe Quintanilla Flores",
       organiza: "CAESA GROUP – Generando Valor",
 
       objetivoCurso:
-        "Brindar a los participantes un método práctico, claro e intuitivo —respaldado por un software didáctico y por un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)— para tomar decisiones operativas, tácticas y estratégicas que incrementen la rentabilidad, optimicen recursos y mejoren los resultados de cualquier empresa, sin necesidad de conocimientos matemáticos avanzados.",
+        "Desarrollar en los participantes la capacidad de identificar, analizar y resolver problemas de manera estructurada y científica, utilizando herramientas profesionales como estratificación, diagrama causa–efecto, validación con 5W+1H, análisis de datos y estandarización, para generar mejoras sostenibles en cualquier organización.",
 
       descripcionGeneral:
-        "Todas las empresas toman decisiones todos los días: qué producir, qué vender, dónde asignar recursos, cuáles órdenes aceptar, qué clientes priorizar y cómo equilibrar capacidad, demanda y rentabilidad. Sin embargo, la mayoría toma estas decisiones basándose en intuición, experiencia o información parcial, lo que provoca pérdidas, retrasos, cuellos de botella, baja rentabilidad y decisiones incongruentes entre departamentos.\n\nPara resolver este problema, este curso introduce un Sistema de Soporte para la Toma de Decisiones (SSTD) que integra información clave de demanda, costos marginales, capacidades, tiempos de proceso y prioridades estratégicas, utilizando un algoritmo de priorización —basado en la Velocidad de Generación de Contribución Marginal (VGCM)— como motor central.\n\nAdemás, los participantes utilizarán un software didáctico especializado, el cual les permitirá simular decisiones reales en Mercadotecnia, Producción, Compras y Finanzas, analizando su impacto directo en los estados financieros y en la contribución marginal total.\n\nEste curso es totalmente introductorio, intuitivo, práctico y aplicable para cualquier profesionista. Al finalizar, los participantes habrán aprendido un método único, basado en datos, para tomar mejores decisiones en menos tiempo.",
+        "Todas las organizaciones enfrentan problemas operativos, de calidad, productividad, tiempos o costos. Sin embargo, la mayoría intenta resolverlos mediante intuición o acciones aisladas, lo que genera soluciones temporales y poco efectivas.\n\nEste curso presenta una metodología científica y probada que ha sido utilizada por CAESA Group en numerosos proyectos empresariales. Los participantes aprenderán a seleccionar correctamente un problema, describirlo con precisión, analizar sus causas probables mediante hechos y datos, validar científicamente la causa raíz y establecer acciones de mejora que generen resultados sostenibles.\n\nEl contenido se basa en herramientas profesionales como estratificación, hojas de recolección de datos, diagrama causa–efecto, análisis 5W+1H, metas SMART, planes de acción y estandarización. El curso incluye ejercicios, casos reales y plantillas listas para usar en el entorno laboral.",
 
       beneficios: [
-        "Aprender a tomar decisiones basadas en datos usando un algoritmo profesional y un simulador interactivo",
-        "Tomar mejores decisiones en menos tiempo mediante un método único basado en datos",
-        "Incrementar la rentabilidad, optimizar recursos y mejorar resultados",
-        "Simular decisiones reales y analizar su impacto directo en los estados financieros y en la contribución marginal total",
+        "Adquirir una metodología científica y práctica para resolver problemas de forma efectiva en tu organización",
+        "Aprender a validar científicamente la causa raíz",
+        "Establecer acciones de mejora que generen resultados sostenibles",
+        "Utilizar herramientas profesionales y plantillas listas para usar en el entorno laboral",
       ],
 
       materialComplementario: [
-        "Software didáctico especializado",
+        "Ejercicios",
+        "Casos reales",
+        "Plantillas listas para usar en el entorno laboral",
       ],
 
       perfilInstructorTitulo: "Descripción del Instructor",
       perfilInstructorBullets: [
-        "Creador del concepto Velocidad de Generación de Contribución Marginal (VGCM).",
-        "Fundador y Director General de CAESA GROUP.",
-        "Con más de 40 años de experiencia, ha liderado más de 500 proyectos empresariales.",
-        "Ha capacitado a más de 1,500 profesionistas.",
-        "Ha desarrollado Sistemas de Soporte para la Toma de Decisiones utilizados ampliamente en la industria.",
         "Maestro en Investigación de Operaciones por Georgia Tech.",
-        "Exdirector de la carrera de Ingeniería Industrial y de Sistemas del Tec de Monterrey durante 15 años.",
-        "Combina teoría avanzada con aplicaciones prácticas simples y poderosas para transformar la forma en que las empresas toman decisiones.",
+        "Cuenta con más de 40 años de experiencia impartiendo cursos y liderando proyectos de mejora.",
+        "Como Director de la carrera de Ingeniería Industrial y de Sistemas del Tecnológico de Monterrey, coordinó más de 500 proyectos reales aplicando metodologías de análisis y solución de problemas.",
+        "Su enfoque combina pensamiento crítico, herramientas profesionales y experiencia práctica para lograr soluciones efectivas y sostenibles.",
       ],
 
-      propuestaVisualBullets: [
-        "Dashboards con indicadores financieros y operativos.",
-        "Gráficos de capacidad vs demanda (cuellos de botella).",
-        "Diagramas del concepto VGCM (CM / tiempo).",
-        "Simuladores o mockups del software utilizado en el curso.",
-        "Equipos tomando decisiones en juntas ejecutivas.",
-        "Iconografía de datos, algoritmos, priorización y optimización.",
-      ],
-
-      testimonio: {
-        texto:
-          "Caesa Group desempeñó un rol de soporte estratégico en uno de nuestros proyectos de transformación mediante intervenciones tácticas, aplicando herramientas Lean con un enfoque holístico complementando así nuestras capacidades internas y co-creando con nosotros un mapa de ruta para futuros desarrollos.",
-        autor: "Edgar García",
-        cargo: "Plant Manager",
-        empresa: "Nemak",
-      },
+    
 
       highlights: [
-        "Algoritmo basado en VGCM",
-        "Software didáctico especializado",
-        "Decisiones operativas, tácticas y estratégicas",
-        "Método introductorio e intuitivo",
+        "Metodología científica",
+        "5W+1H",
+        "Diagrama causa–efecto",
+        "Estratificación y Pareto",
       ],
 
       ctaTexto:
-        "Inscríbete al curso 'Sistemas de Soporte para la Toma de Decisiones' y aprende a tomar decisiones basadas en datos usando un algoritmo profesional y un simulador interactivo. Obtén tu constancia de participación y una ventaja real en tu formación profesional.",
+        "Inscríbete al curso 'Análisis y Solución de Problemas' y adquiere una metodología científica y práctica para resolver problemas de forma efectiva en tu organización.",
 
       footerBrand: "© CAESA GROUP",
       footerWeb: "www.caesagroup.com",
       footerEmail: "contacto@caesagroup.com",
-    }
+    },
 
   ];
 
@@ -843,20 +781,14 @@ export function Cursos() {
               >
                 {/* Imagen */}
                 <div className="relative">
-                  <img src={curso.imageUrl} alt={curso.nombre} className="h-40 w-full object-cover" loading="lazy" />
+                  <img src={curso.imageUrl} alt={curso.nombre} className="h-100 w-full object-cover" loading="lazy" />
 
                   <div className="absolute top-3 left-3 bg-yellow-400 text-[#1e3a8a] font-bold px-3 py-1 rounded-full text-xs shadow">
                     50% OFF · Tiempo limitado
                   </div>
                 </div>
 
-                <div className="p-6 flex-1 flex flex-col">
-                  {/* Categoría */}
-                  <div className="mb-3">
-                    <span className="inline-block bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-                      {curso.categoria}
-                    </span>
-                  </div>
+                <div className="p-6 flex-1 flex flex-col">         
 
                   <h3 className="text-[#1e3a8a] mb-2">{curso.nombre}</h3>
 
@@ -1063,7 +995,6 @@ export function Cursos() {
                 </div>
               ) : null}
 
-              {/* ✅ NUEVO: Contexto y estadísticas (si existe) */}
               {cursoSeleccionado.contextoEstadisticas ? (
                 <div className="bg-white border rounded-xl p-5">
                   <SectionTitle icon={<Building2 size={20} />} title="Contexto y estadísticas laborales" />
@@ -1071,7 +1002,6 @@ export function Cursos() {
                 </div>
               ) : null}
 
-              {/* ✅ NUEVO: Perfil instructor (si existe) */}
               {cursoSeleccionado.perfilInstructorBullets?.length ? (
                 <div>
                   <SectionTitle icon={<User size={20} />} title={cursoSeleccionado.perfilInstructorTitulo || "Perfil"} />
@@ -1079,15 +1009,6 @@ export function Cursos() {
                 </div>
               ) : null}
 
-              {/* ✅ NUEVO: Propuesta visual (si existe) */}
-              {cursoSeleccionado.propuestaVisualBullets?.length ? (
-                <div>
-                  <SectionTitle icon={<Tag size={20} />} title="Propuesta visual" />
-                  <BulletList items={cursoSeleccionado.propuestaVisualBullets} />
-                </div>
-              ) : null}
-
-              {/* ✅ NUEVO: Testimonio (si existe) */}
               {cursoSeleccionado.testimonio ? (
                 <div className="bg-gray-50 border rounded-xl p-5">
                   <SectionTitle icon={<Quote size={20} />} title="Lo que dicen nuestros participantes" />

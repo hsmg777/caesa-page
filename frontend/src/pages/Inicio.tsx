@@ -1,14 +1,13 @@
 import { ArrowRight, Star, CheckCircle, TrendingUp, Award, Clock, ExternalLink, 
-         Zap, Users, ShieldCheck, Rocket, Gift, Target, Instagram, Music2, ChevronLeft, ChevronRight } from 'lucide-react';
+         Zap, Users, ShieldCheck, Rocket, Gift, Target, Instagram, Music2, ChevronLeft, ChevronRight, 
+         Facebook} from 'lucide-react';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from "react";
 import HeroFounderHighlight from '../components/HeroFounderHighlight';
 import PainSolutionSection from '../components/PainSolutionSection';
 import CouponRequestModal from "../components/CouponRequestModal"; 
-import BonusSection from '../components/BonusSection';
-
-
+import CtaAutoVideo from '../components/CtaAutoVideo';
 
 type Page = 'inicio' | 'programas' | 'cursos' | 'sobre-nosotros' | 'contacto';
 
@@ -58,79 +57,110 @@ export function Inicio({ onNavigate }: InicioProps) {
     }, []);
 
     useEffect(() => {
-      const targetDate = new Date(2025, 11, 18, 0, 0, 0); //Aqui fecha de contador
+      const TIME_ZONE = "America/Mexico_City";
+
+      const zonedTimeToUtc = (
+        year: number,
+        monthIndex: number, 
+        day: number,
+        hour: number,
+        minute = 0,
+        second = 0
+      ) => {
+        const dtf = new Intl.DateTimeFormat("en-US", {
+          timeZone: TIME_ZONE,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        });
+
+        const getOffset = (date: Date) => {
+          const parts = dtf.formatToParts(date).reduce((acc: any, p) => {
+            if (p.type !== "literal") acc[p.type] = p.value;
+            return acc;
+          }, {});
+          const asUTC = Date.UTC(
+            Number(parts.year),
+            Number(parts.month) - 1,
+            Number(parts.day),
+            Number(parts.hour),
+            Number(parts.minute),
+            Number(parts.second)
+          );
+          return asUTC - date.getTime();
+        };
+
+        const utcGuess = Date.UTC(year, monthIndex, day, hour, minute, second);
+
+        let offset = getOffset(new Date(utcGuess));
+        let utc = utcGuess - offset;
+
+        offset = getOffset(new Date(utc));
+        utc = utcGuess - offset;
+
+        return utc;
+      };
+
+      const targetUTC = zonedTimeToUtc(2025, 11, 18, 18, 0, 0);
+
       const updateCountdown = () => {
-        const now = new Date().getTime();
-        const distance = targetDate.getTime() - now;
+        const now = Date.now();
+        const distance = targetUTC - now;
 
         if (distance <= 0) {
-          setTimeLeft({
-            days: 0,
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
-            expired: true,
-          });
+          setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: true });
           return;
         }
 
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor(
-          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        const minutes = Math.floor(
-          (distance % (1000 * 60 * 60)) / (1000 * 60)
-        );
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        setTimeLeft({
-          days,
-          hours,
-          minutes,
-          seconds,
-          expired: false,
-        });
+        setTimeLeft({ days, hours, minutes, seconds, expired: false });
       };
 
-      updateCountdown(); 
-      const intervalId = setInterval(updateCountdown, 1000);
-
-      return () => clearInterval(intervalId);
+      updateCountdown();
+      const intervalId = window.setInterval(updateCountdown, 1000);
+      return () => window.clearInterval(intervalId);
     }, []);
+
+
 
   const cursos = [
     {
       nombre: 'Administración de Empresas de Manufactura con Enfoque TOC',
       descripcion: 'Aprende a optimizar recursos y eliminar cuellos de botella aplicando la Teoría de Restricciones. Incluye simulador de producción y análisis del libro "La Meta".',
-      nivel: 'Todos los niveles',
-      precio: '$73.50',
-      precioAnterior: '$147',
+      precio: '$147 USD',
       descuento: '50%',
+      linkHotmart: 'https://hotmart.com'
     },
     {
       nombre: 'Administración de Proyectos con el Enfoque de Cadena Crítica (CCPM)',
       descripcion: 'Domina la planeación y ejecución de proyectos eliminando la multitarea y reduciendo tiempos mediante la metodología de Cadena Crítica. Incluye software de simulación especializado.',
-      nivel: 'Todos los niveles',
-      precio: '$73.50',
-      precioAnterior: '$147',
+      precio: '$147 USD',
       descuento: '50%',
+      linkHotmart: 'https://hotmart.com'
     },
     {
-      nombre: 'Análisis y Solución de Problemas',
-      descripcion: 'Domina una metodología científica para identificar, analizar y resolver problemas de raíz. Utiliza herramientas profesionales (5W+1H, Pareto, Causa-Efecto) para lograr mejoras sostenibles y evitar soluciones temporales.',
-      nivel: 'Todos los niveles',
-      precio: '$48.50',
-      precioAnterior: '$97',
+      nombre: 'Sistemas de Soporte para la Toma de Decisiones',
+      descripcion: 'Curso para aprender un método práctico, claro e intuitivo respaldado por un software didáctico y un algoritmo exclusivo basado en la Velocidad de Generación de Contribución Marginal (VGCM)— para tomar decisiones operativas, tácticas y estratégicas que incrementen la rentabilidad, optimicen recursos y mejoren los resultados de cualquier empresa, sin necesidad de conocimientos matemáticos avanzados.',
+      precio: '$197 USD',
       descuento: '50%',
-      estudiantes: '1,890',
+      linkHotmart: 'https://hotmart.com'
+
     },
     {
       nombre: 'Diplomado en Manufactura Esbelta',
       descripcion: 'Programa integral de 5 módulos para dominar metodologías Lean, diseñado para analizar, diseñar y mejorar sistemas productivos reduciendo desperdicios.',
-      nivel: 'Todos los niveles',
-      precio: '$248.50',
-      precioAnterior: '$497',
+      precio: '$497 USD',
       descuento: '50%',
+      linkHotmart: 'https://hotmart.com'
+
     },
   ];
 
@@ -185,6 +215,10 @@ export function Inicio({ onNavigate }: InicioProps) {
       <section className="py-0 bg-gray-50">
         <PainSolutionSection onNavigate={onNavigate} onRequestCoupon={() => setOpenCouponModal(true)}/>
       </section>
+      <section className="py-0 bg-gray-50">
+        <CtaAutoVideo/>
+      </section>
+
       {/* Hero Section - SUPER VENDEDOR */}
       <section className="relative bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#3b82f6] text-white overflow-hidden">
         {/* Animated background */}
@@ -232,7 +266,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                 transition={{ delay: 0.3 }}
                 className="text-xl lg:text-2xl text-blue-100 mb-4"
               >
-                Programa de Desarrollo de Competencias Profesionales
+                Programa avanzado de Competencias Profesionales
               </motion.p>
 
               <motion.div
@@ -259,7 +293,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                   transition={{ repeat: Infinity, duration: 2 }}
                   className="absolute -top-4 -right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm shadow-xl"
                 >
-                  ¡AHORRA mas de $700!
+                  ¡AHORRA mas de $850 USD!
                 </motion.div>
 
                 <div className="text-[#1e3a8a] mb-3">
@@ -271,7 +305,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                       transition={{ repeat: Infinity, duration: 1.5 }}
                       className="text-5xl lg:text-6xl bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] bg-clip-text text-transparent"
                     >
-                      $597
+                      $597 USD 
                     </motion.span>
                   </div>
                 </div>
@@ -418,54 +452,58 @@ export function Inicio({ onNavigate }: InicioProps) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             {cursos.map((curso, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all p-6 relative border-2 border-transparent hover:border-[#3b82f6]"
-              >
-                {/* Badge de descuento */}
-                <div className="absolute -top-3 -right-3 bg-red-500 text-white px-3 py-1 rounded-full text-sm shadow-lg">
-                  -{curso.descuento}
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
+              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden flex flex-col"
+            >
+              {/* Imagen */}
+              <div className="relative">
+                
+                {/* Badge descuento */}
+                <div className="absolute top-3 left-3 bg-yellow-400 text-[#1e3a8a] font-bold px-3 py-1 rounded-full text-xs shadow">
+                  {curso.descuento ? `-${curso.descuento} · Tiempo limitado` : "Tiempo limitado"}
                 </div>
+              </div>
 
+              <div className="p-6 flex-1 flex flex-col">
+                
+
+                <h3 className="text-[#1e3a8a] mb-2 py-5">{curso.nombre}</h3>
+
+                <p className="text-gray-600 text-sm mb-4 flex-1">{curso.descripcion}</p>
+
+                {/* Precio */}
                 <div className="mb-4">
-                  <span className="inline-block bg-blue-100 text-[#1e3a8a] px-3 py-1 rounded-full text-sm">
-                    {curso.nivel}
-                  </span>
-                </div>
-                
-                <h3 className="text-[#1e3a8a] mb-3">
-                  {curso.nombre}
-                </h3>
-                
-                <p className="text-gray-600 text-sm mb-4">
-                  {curso.descripcion}
-                </p>
-
-                <div className="flex items-baseline gap-2 mb-4">
-                  <span className="text-3xl text-red-400 line-through">{curso.precioAnterior}</span>
-                  <span className="text-3xl text-[#3b82f6]">{curso.precio}</span>
+                  <span className="text-2xl text-[#3b82f6]">{curso.precio}</span>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Oferta por tiempo limitado
+                  </p>
                 </div>
 
-                <div className="space-y-2">
+                {/* Botones */}
+                <div className="space-y-2 mt-auto">
+
                   <motion.a
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    href="https://hotmart.com"
+                    href={curso.linkHotmart || "https://hotmart.com"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-2.5 rounded-lg hover:shadow-lg transition-all"
                   >
-                    <span>¡Lo quiero!</span>
+                    <span>Lo quiero ahora</span>
                     <ExternalLink size={16} />
                   </motion.a>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
+          ))}
+
           </div>
 
           <motion.div
@@ -548,7 +586,6 @@ export function Inicio({ onNavigate }: InicioProps) {
               {testimoniosFQF.map((item, index) => (
                 <motion.div
                   key={index}
-                  // ⬇️ AQUÍ EL CAMBIO IMPORTANTE
                   className="min-w-full px-2"
                   initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -683,7 +720,7 @@ export function Inicio({ onNavigate }: InicioProps) {
               </h3>
 
               <p className="text-base sm:text-lg text-white/90 mb-8">
-                Sigue los pasos dentro del modal para solicitar tu cupón y continuar con el proceso.
+                Sigue los pasos dando click al botón para obtener tu cupón y completar tu compra.
               </p>
 
               <motion.button
@@ -722,6 +759,16 @@ export function Inicio({ onNavigate }: InicioProps) {
             {/* Iconos de redes sociales */}
             <div className="flex items-center justify-center gap-4">
               
+              <motion.a
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                href="https://www.facebook.com/profile.php?id=61584887993548&mibextid=wwXIfr&rdid=Mjsh5hF6AYDBAynd&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1DNfivKyKb%2F%3Fmibextid%3DwwXIfr#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white shadow-sm p-3 rounded-lg hover:bg-blue-50 transition-colors"
+              >
+                <Facebook size={24} className="text-[#2c57e4]" />
+              </motion.a>
 
               <motion.a
                 whileHover={{ scale: 1.1 }}
@@ -820,7 +867,7 @@ export function Inicio({ onNavigate }: InicioProps) {
             </motion.a>
 
             <p className="text-sm mt-6 opacity-90">
-              ⚡ No pierdas esta oportunidad única — sesión informativa: 18/12/2025
+              ⚡ No pierdas esta oportunidad única — sesión informativa: 18/12/2025 CDMX
             </p>
           </motion.div>
         </div>

@@ -24,8 +24,7 @@ export default function CouponRequestModal({
 }: CouponRequestModalProps) {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
-  // ✅ Link paso 2
-  const HOTMART_URL = "https://hotmart.com"; // <-- pon aquí tu URL real
+  const HOTMART_URL = "https://hotmart.com"; 
 
   const PRODUCTOS = useMemo(
     () => [
@@ -339,7 +338,6 @@ export default function CouponRequestModal({
         </div>
       )}
 
-      {/* ====================== PASO 2: Hotmart ====================== */}
       {openStep2 && (
         <div className="fixed inset-0 z-[1000]">
           <button
@@ -353,9 +351,9 @@ export default function CouponRequestModal({
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
               <div className="flex items-center justify-between px-6 py-5 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a]">
                 <div>
-                  <h3 className="text-lg font-semibold">Paso 2</h3>
+                  <h3 className="text-lg font-semibold">¡Listo! Paso 2</h3>
                   <p className="text-[#1e3a8a]/90 text-sm">
-                    Adquirir el producto en Hotmart
+                    Revisa tu correo para continuar
                   </p>
                 </div>
 
@@ -372,31 +370,41 @@ export default function CouponRequestModal({
               <div className="p-6 space-y-4">
                 <div className="rounded-xl border border-gray-200 bg-gray-50 p-4">
                   <p className="text-gray-700">
-                    Ya puedes continuar con el proceso y comprar el producto en
-                    Hotmart. Aplica tu cupón cuando te llegue para obtener tu
-                    descuento.
+                    ✅ Tu solicitud fue registrada.
                   </p>
+
+                  <p className="text-gray-700 mt-2">
+                    <span className="font-semibold">
+                      Revisa las instrucciones que te llegarán al correo
+                    </span>{" "}
+                    para poder proceder con la compra del producto{" "}
+                    <span className="font-semibold">
+                      junto con tu cupón de descuento
+                    </span>.
+                  </p>
+
+                  <ul className="mt-3 space-y-2 text-sm text-gray-600 list-disc pl-5">
+                    <li>Revisa también “Promociones” o “Spam”.</li>
+                    <li>El cupón puede tardar unos minutos en llegar.</li>
+                    <li>Si no te llega, vuelve a solicitarlo o contáctanos.</li>
+                  </ul>
                 </div>
 
-                <a
-                  href={HOTMART_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={handleCloseAll}
                   className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-3 rounded-lg hover:shadow-lg transition-all"
                 >
-                  <ShoppingCart size={20} />
-                  <span>Ir a Hotmart</span>
-                  <ExternalLink size={18} />
-                </a>
+                  <span>Entendido</span>
+                </button>
 
-                <p className="text-xs text-gray-500 text-center">
-                  Tip: revisa tu correo para recibir el cupón.
-                </p>
+            
               </div>
             </div>
           </div>
         </div>
       )}
+
     </>
   );
 }
