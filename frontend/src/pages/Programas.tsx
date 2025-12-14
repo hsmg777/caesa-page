@@ -61,7 +61,7 @@ export function Programas() {
     duracion: "8 cursos y 1 diplomado.",
     nivel: "Intermedio",
     modalidad: "Online",
-    precio: "$997 USD",
+    precio: "$597 USD",
     beneficios: [
       "Mayor empleabilidad y preparación para puestos gerenciales",
       "Certificados profesionales individuales por curso",
@@ -91,7 +91,7 @@ export function Programas() {
 
     curso: {
       nombre: "Pensamiento Crítico",
-      precio: "$997 USD",
+      precio: "$597 USD",
       duracion: "A ritmo propio",
       instructor: "Felipe Quintanilla Flores",
       organiza: "CAESA GROUP – Generando Valor",

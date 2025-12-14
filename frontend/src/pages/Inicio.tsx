@@ -299,7 +299,8 @@ export function Inicio({ onNavigate }: InicioProps) {
                 <div className="text-[#1e3a8a] mb-3">
                   <span className="text-sm">Precio normal:</span>
                   <div className="flex items-baseline gap-3">
-                    <span className="text-6xl text-red-400 line-through">$1473</span>
+                    <span className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-red-400 line-through">
+                    $1473</span>
                     <motion.span
                       animate={{ scale: [1, 1.05, 1] }}
                       transition={{ repeat: Infinity, duration: 1.5 }}
