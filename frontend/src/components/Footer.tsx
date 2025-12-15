@@ -100,6 +100,27 @@ export function Footer({ onNavigate }: FooterProps) {
 
         <div className="border-t border-blue-700 mt-8 pt-8 text-center text-sm text-blue-200">
           <p>© {new Date().getFullYear()} CAESA GROUP. Todos los derechos reservados.</p>
+
+          <div className="mt-3 flex items-center justify-center gap-2">
+            <span className="text-blue-200">Desarrollado por</span>
+
+            <a
+              href="https://nivusoftware.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white hover:text-blue-100 transition-colors"
+              aria-label="NIVUSOFTWARE"
+            >
+              <img
+                src="/images/logo_nube.png"
+                alt="NIVUSOFTWARE"
+                className="h-5 w-auto"
+                loading="lazy"
+              />
+              <span className="font-semibold">Nivusoftware</span>
+            </a>
+          </div>
+
         </div>
       </div>
     </footer>
