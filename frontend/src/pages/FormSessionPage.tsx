@@ -78,7 +78,7 @@ export default function FormsSessionPage() {
     setEnviando(true);
 
     try {
-      const resp = await fetch(`${API_URL}/request-coupon`, {
+      const resp = await fetch(`${API_URL}/session-attended`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

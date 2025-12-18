@@ -298,3 +298,148 @@ Notificación automática – CAESA GROUP
     except Exception as e:
         print("❌ Error al enviar solicitud de cupón:", repr(e))
         abort(500, message="No se pudo enviar la solicitud de cupón")
+
+
+
+@mail_bp.route("/session-attended", methods=["POST"])
+@mail_bp.arguments(CouponRequestSchema)
+@mail_bp.response(200, description="Asistencia a sesión informativa notificada correctamente")
+def session_attended(data):
+    nombre = data["nombre"]
+    email = data["email"]
+    telefono = data.get("telefono") or "No proporcionado"
+    producto_interes = data["productoInteres"]
+    acepta_politicas = data["aceptaPoliticas"]
+
+    try:
+        msg = EmailMessage()
+        msg["Subject"] = f"Asistencia a sesión informativa – CAESA GROUP ({nombre})"
+        msg["From"] = MAIL_SENDER
+        msg["To"] = MAIL_RECIPIENT
+
+        # ----------- TEXTO PLANO (fallback) -----------
+        msg.set_content(
+            f"""
+Asistencia a sesión informativa – CAESA GROUP
+
+{nombre} ha asistido a la sesión informativa.
+
+Nombre: {nombre}
+Correo: {email}
+Teléfono: {telefono}
+Producto de interés: {producto_interes}
+Acepta políticas de privacidad: {"Sí" if acepta_politicas else "No"}
+
+Notificación automática – CAESA GROUP
+"""
+        )
+
+        # ----------- HTML (fondo morado + mensaje principal) -----------
+        msg.add_alternative(
+            f"""
+<html>
+  <body style="margin:0; padding:0; background-color:#0b1026; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;">
+    <table align="center" width="650" cellpadding="0" cellspacing="0"
+           style="margin:24px auto; border-radius:20px; overflow:hidden; box-shadow:0 18px 45px rgba(17,24,39,0.55); background:#120a2a;">
+
+      <!-- HEADER -->
+      <tr>
+        <td style="
+          padding:32px 40px;
+          background: linear-gradient(135deg,#6d28d9,#a855f7);
+          color:#f5f3ff;
+          text-align:left;
+        ">
+          <div style="font-size:18px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;">
+            CAESA GROUP
+          </div>
+          <p style="margin:8px 0 0; font-size:14px; opacity:0.95;">
+            Notificación de asistencia a la sesión informativa.
+          </p>
+        </td>
+      </tr>
+
+      <!-- BODY -->
+      <tr>
+        <td style="padding:28px 32px; background: radial-gradient(circle at top left, #a855f7 0, #020617 55%); color:#e5e7eb;">
+          
+          <!-- Mensaje principal -->
+          <table width="100%" cellpadding="0" cellspacing="0"
+                 style="border-radius:16px; background:rgba(15,23,42,0.92); border:1px solid rgba(148,163,184,0.28);">
+            <tr>
+              <td style="padding:22px;">
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.10em; color:#ddd6fe; margin-bottom:10px;">
+                  Sesión informativa
+                </div>
+
+                <h2 style="margin:0 0 14px; font-size:18px; color:#f9fafb;">
+                  ✅ {nombre} ha asistido a la sesión informativa
+                </h2>
+
+                <table width="100%" cellpadding="6" cellspacing="0" style="border-collapse:collapse; font-size:14px;">
+                  <tr>
+                    <td style="width:38%; color:#9ca3af; font-weight:500;">Nombre completo</td>
+                    <td style="color:#e5e7eb;">{nombre}</td>
+                  </tr>
+                  <tr>
+                    <td style="color:#9ca3af; font-weight:500;">Correo electrónico</td>
+                    <td style="color:#e5e7eb;">{email}</td>
+                  </tr>
+                  <tr>
+                    <td style="color:#9ca3af; font-weight:500;">Teléfono</td>
+                    <td style="color:#e5e7eb;">{telefono}</td>
+                  </tr>
+                  <tr>
+                    <td style="color:#9ca3af; font-weight:500;">Producto de interés</td>
+                    <td style="color:#e5e7eb;">{producto_interes}</td>
+                  </tr>
+                  <tr>
+                    <td style="color:#9ca3af; font-weight:500;">Políticas</td>
+                    <td style="color:#e5e7eb;">{"Aceptadas" if acepta_politicas else "No aceptadas"}</td>
+                  </tr>
+                </table>
+
+                <!-- Acción sugerida -->
+                <div style="
+                  margin-top:16px;
+                  padding:14px 16px;
+                  border-radius:12px;
+                  background:rgba(2,6,23,0.75);
+                  border:1px dashed rgba(168,85,247,0.55);
+                  color:#ede9fe;
+                  line-height:1.5;
+                ">
+                  <strong>Acción:</strong> Dar seguimiento al contacto y continuar el proceso de orientación/matriculación (si aplica, enviar cupón o enlace de compra).
+                </div>
+
+              </td>
+            </tr>
+          </table>
+
+        </td>
+      </tr>
+
+      <!-- FOOTER -->
+      <tr>
+        <td style="padding:18px 32px 24px; background:#020617; color:#64748b; font-size:11px; text-align:center;">
+          Mensaje automático generado desde la web de CAESA GROUP (asistencia a sesión informativa).
+        </td>
+      </tr>
+
+    </table>
+  </body>
+</html>
+            """,
+            subtype="html",
+        )
+
+        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as smtp:
+            smtp.starttls()
+            smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+            smtp.send_message(msg)
+
+        return {"success": True, "message": "Asistencia a sesión informativa notificada correctamente"}
+
+    except Exception as e:
+        print("❌ Error al enviar asistencia a sesión:", repr(e))
+        abort(500, message="No se pudo enviar la notificación de asistencia")
