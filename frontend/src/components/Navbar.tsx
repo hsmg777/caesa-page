@@ -64,6 +64,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   {item.label}
                 </motion.button>
               ))}
+              {/*
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -80,7 +81,7 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                   whileHover={{ x: 0 }}
                   transition={{ duration: 0.3 }}
                 />
-              </motion.button>
+              </motion.button>*/}
             </div>
 
             {/* Mobile menu button */}
@@ -116,12 +117,13 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
                     {item.label}
                   </button>
                 ))}
+                {/*}
                 <button
                   onClick={() => window.open("https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo", "_blank")}
                   className="block w-full bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white px-6 py-3 rounded-lg hover:shadow-lg transition-all"
                 >
                   Quiero inscribirme
-                </button>
+                </button> */}
               </div>
             </motion.div>
           )}

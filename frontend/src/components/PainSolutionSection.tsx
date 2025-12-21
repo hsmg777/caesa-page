@@ -127,19 +127,7 @@ const PainSolutionSection: React.FC<HeroPainSolutionProps> = ({
 
               {/* CTA */}
               <div className="flex flex-col sm:flex-row gap-3">
-                <motion.button
-                  type="button"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={handleGoToWhatsAppGroup}
-                  className="inline-flex items-center justify-center px-7 py-4 rounded-full
-                             bg-gradient-to-r from-yellow-400 to-orange-500
-                             text-[#1e3a8a] text-sm sm:text-base font-extrabold
-                             shadow-lg hover:shadow-2xl transition"
-                >
-                  QUIERO DEJAR DE SER “UNO MÁS”!
-                  <ArrowRight className="ml-2" size={18} />
-                </motion.button>
+                
 
                 <motion.button
                   type="button"
