@@ -129,10 +129,12 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
           )}
         </AnimatePresence>
       </nav>
-
+      <div className="mt-20"></div>
+      {/* 
       <div className="mt-20">
         <PromoBanner />
       </div>
+      */}
     </>
   );
 }
