@@ -132,16 +132,34 @@ export function Inicio({ onNavigate }: InicioProps) {
 
   const testimoniosFQF = [
   {
+    nombre: 'Juan de Dios Carrizales',
+    rol: 'Gerente Planta Yazaki',
+    texto:
+      'Tuve la fortuna de conocer a Felipe Quintanilla desde mis años como alumno en el Tec a finales de los 90, cuando cursaba mi maestría. Más adelante volví a coincidir con él cuando impartió clases en el diplomado Leadership Development Program, desarrollado por la empresa donde laboro en conjunto con el Tecnológico de Monterrey. En esa ocasión, el Tec convocó a algunos de sus profesores más destacados, y Felipe formó parte de ese selecto grupo. Sus sesiones siempre fueron dinámicas, enriquecedoras y con un enfoque muy humano; su cercanía con los alumnos hacía que el aprendizaje fluyera de manera natural. A lo largo del tiempo he mantenido contacto con él y he seguido de cerca sus iniciativas y proyectos. Se distingue por su sólida trayectoria profesional, su capacidad para generar confianza y su compromiso permanente con la actualización y el crecimiento continuo. Sin duda, es un académico y líder que deja huella en quienes tenemos la oportunidad de trabajar o aprender de él.',
+  },
+  {
     nombre: 'Dr. Fernando Mata',
     rol: 'Coach, Educador, Consultor y Escritor',
     texto:
       'Felipe combina una competencia excepcional con un profundo compromiso con la formación de sus estudiantes. Sabe traducir ideas complejas en enseñanzas claras y transformadoras, y se convierte en un verdadero mentor para quienes trabajan con él.',
   },
   {
+    nombre: 'Rosa Hilda Félix',
+    rol: 'Asesora del Capítulo 979, Instituto Tecnológico de San Luis Potosí',
+    texto:
+      'Conozco a Felipe Quintanilla desde su etapa como Vicepresidente del Institute of Industrial Engineers en México, periodo en el que pude constatar de primera mano su liderazgo, su capacidad de organización y su genuino interés por la formación de jóvenes profesionistas. En el trabajo compartido, siempre destacó por su visión estratégica, su apertura al diálogo y su compromiso con el desarrollo de competencias que realmente responden a las necesidades del entorno profesional. He sido testigo de su habilidad para acompañar a recién egresados en su proceso de transición al mundo laboral, brindándoles orientación clara, herramientas prácticas y confianza en su potencial. Por ello, considero que su labor como formador en competencias profesionales es una aportación valiosa y pertinente para quienes inician su trayectoria profesional.',
+  },
+  {
     nombre: 'Gustavo Aceves',
     rol: 'Consultor',
     texto:
       'Conozco a Felipe desde mis años como alumno en el Tec. Sus clases siempre fueron interactivas y cercanas. Hoy, como colega, destaco su amplia experiencia profesional, su actualización constante y la seguridad y confianza que inspira.',
+  },
+  {
+    nombre: 'Patricio G. Murga',
+    rol: 'Director de Tecnología y Desarrollo, Viakable',
+    texto:
+      'Tengo el placer de conocer a Felipe desde muy joven, y desde entonces he sentido gran respeto y admiración por él. Felipe es un Ingeniero Industrial del ITESM, con un post grado en GEORGIA INSTITUTE OF TECHNOLOGY, más conocido como GEORGIA TECH. Posteriormente a esa etapa, tuvo una excelente y muy larga trayectoria en el TEC DE MONTERREY, en donde fue un gran catedrático y funcionario. Como catedrático, y junto con sus mejores alumnos, desarrolló un sinnúmero de proyectos para la Industria local y nacional. En el presente, al jubilarse de esa institución, esta dando asesorías y cursos de gran impacto. Yo recomiendo ampliamente a Felipe como una fuente segura y confiable de conocimiento.',
   },
   {
     nombre: 'Jorge Lozano',
@@ -173,6 +191,7 @@ export function Inicio({ onNavigate }: InicioProps) {
     texto:
       'He trabajado con Felipe: es metodológico, vanguardista y disciplinado. Su compromiso con la industria, la educación y la sociedad es evidente en cada proyecto en el que participa.',
   },
+  
 ];
 
 
