@@ -44,6 +44,7 @@ export function Inicio({ onNavigate }: InicioProps) {
       expired: false,
     });
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
+    const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
 
     const scrollPrev = useCallback(() => {
       setCurrentTestimonial((prev) =>
@@ -131,6 +132,18 @@ export function Inicio({ onNavigate }: InicioProps) {
     }, []);
 
   const testimoniosFQF = [
+  {
+    nombre: 'José Antonio Fernández Carbajal',
+    rol: 'Presidente Ejecutivo del Consejo de Administración de FEMSA',
+    texto:
+      'Tengo el gusto de conocer a Felipe desde hace más de tres décadas. Hemos tenido el privilegio de coincidir en nuestra querida alma mater, el Tecnológico de Monterrey. Reconozco su vocación genuina por la educación y el liderazgo estratégico. Es un profesor y mentor con gran calidez humana. Su entrega y compromiso se ven plasmados en todos los proyectos de transformación y cursos que imparte. Recomiendo mucho a Felipe como un líder estratega con visión humanista para brindar asesorías, cursos y aportar valor en el desarrollo profesional.',
+  },
+  {
+    nombre: 'Dr. Antonio Dieck Assad',
+    rol: 'Ex Rector de la Universidad de Monterrey',
+    texto:
+      'Conozco a Felipe desde la juventud cuando los juegos de soccer en diferentes escenarios más de 50 años de eso. Su trayectoria en lo personal, profesional e institucional ha sido intachable siempre con transparencia, ética y valores. hemos sido contemporáneos en la carrera Universitaria de IIS así como en los estudios de posgrado en USA. Su compromiso con su desarrollo profesional inicialmente para luego asegurar el de sus estudiantes ha sido siempre una característica de Felipe. En los últimos años he tenido el honor de coincidir con Felipe en 3 etapas profesionales, 1. El área académica de Ingeniería Industrial en el Tec de Monterrey donde participamos en la cátedra a jóvenes de diferentes carreras incluyendo IIS´s así como diferentes proyectos de educación ejecutiva y asesorías a empresas, la parte de seguir colaborando, sirviendo a las diferentes áreas de la institución y externas siempre fueron parte de la actividad. 2. Cuando fui decano de la EGADE Business School así como ejecutivo de la Universidad Virtual del Tec de Monterrey  continuamos trabajando en  iniciativas desde diferentes áreas en la misma institución siempre viendo seguir la Visión y misión del Tec, alumnos, proyectos y comunidad, en éstos tiempos inició trabajos a nivel internacional con instituciones de prestigio en USA y el mundo para beneficiar el aprendizaje de sus estudiantes, colegas de la institución y de otras instituciones , cabe mencionar que Felipe fue Vicepresidente Internacional del IIE, formado parte del Consejo del Instituto de Ingenieros Industriales a nivel mundial. 3. Cuando fui Rector de la Universidad de Monterrey seguimos teniendo contacto a nivel profesional y actualizándonoslo de lo que estábamos realizando cada quien, desde sus trincheras, Felipe sigue avanzando en diferentes proyectos e iniciativas siempre con la Misión y Visión institucional. En fin, Felipe siempre avanzando en temas académicos, consultoría y servicio para diferentes alumnos, organizaciones e instituciones considero algo sumamente loable da parte de él y con grandes testimonios de las personas con las que ha interactuado que me lo comentan y recuerdan con cariño y admiración. Ya para finalizar considero recomendar ampliamente a Felipe en el desarrollo e interacción con los cursos y programas que ofrece a la comunidad empresarial. Estoy seguro de que los miembros de las organizaciones y en lo particular que participen en ellos van a encontrar un excelente profesor, formador, mentor y humano que va a guiarlos en el desarrollo de sus actividades profesionales y formación.',
+  },
   {
     nombre: 'Juan de Dios Carrizales',
     rol: 'Gerente Planta Yazaki',
@@ -270,12 +283,32 @@ export function Inicio({ onNavigate }: InicioProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="h-full bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 sm:p-8 border border-blue-100 shadow-sm">
-                    <div className="mb-4 text-4xl text-blue-300">“</div>
-                    <p className="text-gray-700 mb-6 leading-relaxed">
-                      {item.texto}
-                    </p>
-                    <div className="border-t border-blue-100 pt-4">
+                  <div className="h-full min-h-[360px] sm:min-h-[420px] bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 sm:p-8 border border-blue-100 shadow-sm flex flex-col">
+                    <div className="mb-4 text-4xl text-blue-300">&ldquo;</div>
+                    <div className="flex-1">
+                      <p
+                        className={`text-gray-700 leading-relaxed pr-2 ${
+                          expandedTestimonial === index ? "" : "max-h-[200px] overflow-hidden"
+                        }`}
+                      >
+                        {item.texto}
+                      </p>
+                      {item.texto.length > 240 && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setExpandedTestimonial(
+                              expandedTestimonial === index ? null : index
+                            )
+                          }
+                          className="mt-3 text-sm font-semibold text-[#1e3a8a] hover:text-[#1e40af]"
+                          aria-expanded={expandedTestimonial === index}
+                        >
+                          {expandedTestimonial === index ? "Ver menos" : "Ver completo"}
+                        </button>
+                      )}
+                    </div>
+                    <div className="border-t border-blue-100 pt-4 mt-6">
                       <div className="text-[#1e3a8a] font-semibold">
                         {item.nombre}
                       </div>
