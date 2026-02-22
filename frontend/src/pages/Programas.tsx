@@ -1,4 +1,4 @@
-import {
+﻿import {
   CheckCircle,
   Clock,
   Users,
@@ -10,8 +10,8 @@ import {
   GraduationCap,
   Building2,
   Tag,
+  ShieldCheck,
 } from "lucide-react";
-import { Rocket, ExternalLink, ArrowRight, ShieldCheck, Zap } from "lucide-react";
 import { useState } from "react";
 import { motion } from 'framer-motion';
 import BonusSection from "../components/BonusSection";
@@ -52,6 +52,7 @@ interface Programa {
 }
 
 export function Programas() {
+  const HOTMART_URL = "https://hotmart.com";
   const [programaSeleccionado, setProgramaSeleccionado] =
     useState<Programa | null>(null);
   const [openCouponModal, setOpenCouponModal] = useState(false);
@@ -61,10 +62,10 @@ export function Programas() {
     nombre: "Programa Avanzado de Competencias Profesionales",
     descripcion:
       "Ha sido diseñado para fortalecer habilidades que las empresas modernas valoran: pensamiento crítico, liderazgo, metodologías de mejora, administración de proyectos y toma de decisiones efectivas. Cada curso ofrece formación complementaria que impulsa la empleabilidad y acelera el crecimiento profesional.",
-    duracion: "8 cursos y 1 diplomado.",
+    duracion: "6 cursos",
     nivel: "Intermedio",
     modalidad: "Online",
-    precio: "$597 USD",
+    precio: "$497 USD",
     beneficios: [
       "Mayor empleabilidad y preparación para puestos gerenciales",
       "Certificados profesionales individuales por curso",
@@ -78,15 +79,10 @@ export function Programas() {
       "Curso 4: Análisis y Solución de Problemas ",
       "Curso 5: Pensamiento Crítico ",
       "Curso 6: Liderazgo, Trabajo en Equipo y Administración del tiempo",
-      "Curso 7: Evaluación Económica de Proyectos",
-      "Curso 8: Mejora Continua",
-      "Diplomado en Manufactura Esbelta (5 modulos)",
     ],
     incluye: [
       "Simuladores interactivos con software didáctico",
-      'Certificación adicional "Lean Practitioner"',
       "Metodología exclusiva CAESA GROUP",
-      "Herramientas para validación de hipótesis",
       "Enfoque práctico aplicable desde el primer día",
     ],
 
@@ -251,13 +247,15 @@ export function Programas() {
                         Ver detalles del programa
                       </button>
 
-                      <button
-                        onClick={() => setOpenCouponModal(true)}
+                      <a
+                        href={HOTMART_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] text-white py-3 rounded-lg hover:shadow-lg transition-all"
                       >
-                        <span>Solicitar cupón / Inscribirme</span>
+                        <span>Inscribirme</span>
                         <Tag size={18} />
-                      </button>
+                      </a>
                     </div>
                   </div>
 
@@ -266,12 +264,7 @@ export function Programas() {
               </div>
             </aside>
           </div>
-
-          {/* Bonus / Cupón */}
-          <div className="mt-10">
-            <BonusSection onOpenCouponModal={() => setOpenCouponModal(true)} />
-          </div>
-
+          <div className="py-4"> </div>
           {/* Hero Section - SUPER VENDEDOR */}
           <section className="relative bg-gradient-to-br from-[#1e3a8a] via-[#2563eb] to-[#3b82f6] text-white overflow-hidden">
             {/* Animated background */}
@@ -346,123 +339,37 @@ export function Programas() {
                       transition={{ repeat: Infinity, duration: 2 }}
                       className="absolute -top-4 -right-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm shadow-xl"
                     >
-                      ¡AHORRA mas de $850 USD!
+                      ¡AHORRA más de $280 USD!
                     </motion.div>
 
                     <div className="text-[#1e3a8a] mb-3">
                       <span className="text-sm">Precio normal:</span>
                       <div className="flex items-baseline gap-3">
                         <span className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-red-400 line-through">
-                        $1473</span>
+                        $782</span>
                         <motion.span
                           animate={{ scale: [1, 1.05, 1] }}
                           transition={{ repeat: Infinity, duration: 1.5 }}
                           className="text-5xl lg:text-6xl bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] bg-clip-text text-transparent"
                         >
-                          $597 USD 
+                          $497 USD 
                         </motion.span>
                       </div>
                     </div>
-                    {/*
-                    <div className="bg-yellow-50 border border-yellow-300 rounded-xl p-4 md:p-5 mb-4 shadow-sm">
-                      <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between text-sm text-slate-800">
-                        <div className="flex items-start gap-3">
-                          <div className="mt-0.5 rounded-full bg-yellow-100 p-1.5 text-yellow-600">
-                            <Zap className="w-5 h-5" />
-                          </div>
-
-                          <div>
-                            <p className="font-semibold text-slate-900">
-                              Accede a la sesión informativa y obtén{" "}
-                            <strong> <span className="text-red-600">más descuentos exclusivos</span>.</strong>
-                            </p>
-                            <p className="mt-1 text-xs text-slate-600">
-                              Cupos limitados — contactanos por WhatsApp para confirmar tu lugar.
-                            </p>
-                          </div>
-                        </div>
-
-                        <a
-                          href="https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center px-4 py-2.5 rounded-full
-                                    bg-green-500 text-white text-sm font-semibold shadow-md
-                                    hover:bg-green-600 hover:underline underline-offset-2
-                                    hover:shadow-lg transition-all duration-200
-                                    focus-visible:outline-none focus-visible:ring-2
-                                    focus-visible:ring-green-500/70 focus-visible:ring-offset-2
-                                    focus-visible:ring-offset-yellow-50"
-                        >
-                          ¡REGISTRARME!
-                        </a>
-                      </div>
-                    </div> */}
 
                     {/* BONUS */}
                     <div className="border-t-2 border-dashed border-gray-300 pt-4 mb-4">
                       <div className="text-[#1e3a8a] mb-2">Contenido del programa:</div>
-                      <ul className="text-sm text-gray-700 space-y-1">
-                        <li className="flex items-center gap-2">
-                          <CheckCircle size={16} className="text-green-500" />
-                          <span>8 cursos y 1 diplomado enfocados en desarrollo de competencias personales</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <CheckCircle size={16} className="text-green-500" />
-                          <span>Certificado de finalización del programa</span>
-                        </li>
-                        <li className="flex items-center gap-2">
-                          <CheckCircle size={16} className="text-green-500" />
-                          <span>Cursos dictados por Ing. Felipe Quintanilla galardonado profesional del TEC de Monterrey.</span>
-                        </li>
+                      <ul className="list-disc pl-5 text-sm text-gray-700 space-y-2">
+                        <li>6 cursos enfocados en desarrollo de competencias personales</li>
+                        <li>Certificado de finalización del programa</li>
+                        <li>Cursos dictados por Ing. Felipe Quintanilla, galardonado profesional del TEC de Monterrey.</li>
                       </ul>
                     </div>
 
-                    <div className="text-center text-xs text-gray-500">
-                      ✅ Pago seguro y garantía con Hotmart
+                    <div className="w-full text-center text-xs text-gray-500">
+                      <span>Pago seguro y garantía con Hotmart</span>
                     </div>
-                  </motion.div>
-
-                  {/* CTAs MEGA PODEROSOS */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 }}
-                    className="flex flex-col sm:flex-row gap-4"
-                  >
-                    <motion.button
-                      type="button"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setOpenCouponModal(true)}
-                      className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a] px-8 py-5 rounded-xl hover:shadow-2xl transition-all text-lg shadow-lg group relative overflow-hidden"
-                    >
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-orange-500 to-yellow-400"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "100%" }}
-                        transition={{ duration: 0.5 }}
-                      />
-                      <Rocket size={24} className="relative z-10" />
-                      <span className="relative z-10">¡QUIERO MI DESCUENTO AHORA!</span>
-                      <ExternalLink size={20} className="relative z-10" />
-                    </motion.button>
-
-                  </motion.div>
-
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.7 }}
-                    className="mt-4 text-center"
-                  >
-                    <button
-                      onClick={() => handleNavigate('programas')}
-                      className="text-white hover:text-yellow-400 transition-colors inline-flex items-center gap-2"
-                    >
-                      <span>Ver todos los programas disponibles</span>
-                      <ArrowRight size={20} />
-                    </button>
                   </motion.div>
                 </div>
 
@@ -524,7 +431,7 @@ export function Programas() {
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-xl text-[#1e3a8a]">Desafios actuales</h3>
+                  <h3 className="text-xl text-[#1e3a8a]">Desafíos actuales</h3>
                   <ul className="list-disc pl-6 space-y-2">
                     <li>Falta de experiencia práctica para resolver problemas reales.</li>
                     <li>Escasas oportunidades de ascenso.</li>
@@ -611,32 +518,7 @@ export function Programas() {
                       Desarrolla habilidades humanas para dirigir equipos, comunicar con impacto y administrar prioridades.
                       Beneficio clave: convertirse en líder confiable y orientado a resultados.
                     </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-xl text-[#1e3a8a]">7. Evaluación Económica de Proyectos</h3>
-                    <p>
-                      Introduce métodos financieros como VPN, TIR, ROI y VAE para evaluar inversiones personales y empresariales.
-                      Beneficio clave: decisiones financieras inteligentes.
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-xl text-[#1e3a8a]">8. Mejora Continua</h3>
-                    <p>
-                      Integra metodologías Lean, Kaizen y PDCA, más la metodología CAESA aplicada en empresas reales. Beneficio
-                      clave: resultados visibles en eficiencia, productividad y costos.
-                    </p>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-xl text-[#1e3a8a]">9. Diplomado en Manufactura Esbelta</h3>
-                    <p>
-                      Programa completo de 5 módulos: Estrategia, VSM, Indicadores, Técnicas Lean y Técnicas de Implementación.
-                      Incluye Certificado adicional Lean Practitioner. Beneficio clave: dominio profundo de Lean aplicado a
-                      procesos industriales.
-                    </p>
-                  </div>
+                  </div>          
                 </div>
 
                 <div className="space-y-3">
@@ -661,3 +543,4 @@ export function Programas() {
     </div>
   );
 }
+

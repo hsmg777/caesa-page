@@ -1,14 +1,12 @@
-import { ArrowRight, Star, CheckCircle, TrendingUp, Award, Clock, ExternalLink, 
-         Zap, Users, ShieldCheck, Rocket, Gift, Target, Instagram, Music2, ChevronLeft, ChevronRight, 
+﻿import { CheckCircle, TrendingUp, Award, ExternalLink,
+         Users, ShieldCheck, Rocket, Gift, Instagram, Music2, ChevronLeft, ChevronRight,
          Facebook} from 'lucide-react';
-import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 import { motion } from 'framer-motion';
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
+import Hero from '../components/Hero';
+import MasterClassInfoSection from '../components/MasterClassInfoSection';
 import HeroFounderHighlight from '../components/HeroFounderHighlight';
-import PainSolutionSection from '../components/PainSolutionSection';
-import CouponRequestModal from "../components/CouponRequestModal"; 
-import CtaAutoVideo from '../components/CtaAutoVideo';
-import SessionInfoVideoCta from '../components/SessionInfoVideoCta';
+
 
 type Page = 'inicio' | 'programas' | 'cursos' | 'sobre-nosotros' | 'contacto';
 
@@ -17,32 +15,6 @@ interface InicioProps {
 }
 
 export function Inicio({ onNavigate }: InicioProps) {
-
-    const eventDate = new Date(2025, 11, 19); // OJO: mes 11 = diciembre (0-based)
-    const today = new Date();
-
-    const [openCouponModal, setOpenCouponModal] = useState(false);
-
-
-    const handleNavigate = (page: Page) => {
-      onNavigate(page);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-
-    eventDate.setHours(0, 0, 0, 0);
-    today.setHours(0, 0, 0, 0);
-
-    const diffTime = eventDate.getTime() - today.getTime();
-    const rawDaysLeft = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const daysLeft = rawDaysLeft > 0 ? rawDaysLeft : 0;
-    const [timeLeft, setTimeLeft] = useState({
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0,
-      expired: false,
-    });
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const [expandedTestimonial, setExpandedTestimonial] = useState<number | null>(null);
 
@@ -58,78 +30,6 @@ export function Inicio({ onNavigate }: InicioProps) {
       );
     }, []);
 
-    useEffect(() => {
-      const TIME_ZONE = "America/Mexico_City";
-
-      const zonedTimeToUtc = (
-        year: number,
-        monthIndex: number, 
-        day: number,
-        hour: number,
-        minute = 0,
-        second = 0
-      ) => {
-        const dtf = new Intl.DateTimeFormat("en-US", {
-          timeZone: TIME_ZONE,
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit",
-          hour: "2-digit",
-          minute: "2-digit",
-          second: "2-digit",
-          hour12: false,
-        });
-
-        const getOffset = (date: Date) => {
-          const parts = dtf.formatToParts(date).reduce((acc: any, p) => {
-            if (p.type !== "literal") acc[p.type] = p.value;
-            return acc;
-          }, {});
-          const asUTC = Date.UTC(
-            Number(parts.year),
-            Number(parts.month) - 1,
-            Number(parts.day),
-            Number(parts.hour),
-            Number(parts.minute),
-            Number(parts.second)
-          );
-          return asUTC - date.getTime();
-        };
-
-        const utcGuess = Date.UTC(year, monthIndex, day, hour, minute, second);
-
-        let offset = getOffset(new Date(utcGuess));
-        let utc = utcGuess - offset;
-
-        offset = getOffset(new Date(utc));
-        utc = utcGuess - offset;
-
-        return utc;
-      };
-
-      const targetUTC = zonedTimeToUtc(2025, 11, 18, 18, 0, 0);
-
-      const updateCountdown = () => {
-        const now = Date.now();
-        const distance = targetUTC - now;
-
-        if (distance <= 0) {
-          setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, expired: true });
-          return;
-        }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        setTimeLeft({ days, hours, minutes, seconds, expired: false });
-      };
-
-      updateCountdown();
-      const intervalId = window.setInterval(updateCountdown, 1000);
-      return () => window.clearInterval(intervalId);
-    }, []);
 
   const testimoniosFQF = [
   {
@@ -142,7 +42,7 @@ export function Inicio({ onNavigate }: InicioProps) {
     nombre: 'Dr. Antonio Dieck Assad',
     rol: 'Ex Rector de la Universidad de Monterrey',
     texto:
-      'Conozco a Felipe desde la juventud cuando los juegos de soccer en diferentes escenarios más de 50 años de eso. Su trayectoria en lo personal, profesional e institucional ha sido intachable siempre con transparencia, ética y valores. hemos sido contemporáneos en la carrera Universitaria de IIS así como en los estudios de posgrado en USA. Su compromiso con su desarrollo profesional inicialmente para luego asegurar el de sus estudiantes ha sido siempre una característica de Felipe. En los últimos años he tenido el honor de coincidir con Felipe en 3 etapas profesionales, 1. El área académica de Ingeniería Industrial en el Tec de Monterrey donde participamos en la cátedra a jóvenes de diferentes carreras incluyendo IIS´s así como diferentes proyectos de educación ejecutiva y asesorías a empresas, la parte de seguir colaborando, sirviendo a las diferentes áreas de la institución y externas siempre fueron parte de la actividad. 2. Cuando fui decano de la EGADE Business School así como ejecutivo de la Universidad Virtual del Tec de Monterrey  continuamos trabajando en  iniciativas desde diferentes áreas en la misma institución siempre viendo seguir la Visión y misión del Tec, alumnos, proyectos y comunidad, en éstos tiempos inició trabajos a nivel internacional con instituciones de prestigio en USA y el mundo para beneficiar el aprendizaje de sus estudiantes, colegas de la institución y de otras instituciones , cabe mencionar que Felipe fue Vicepresidente Internacional del IIE, formado parte del Consejo del Instituto de Ingenieros Industriales a nivel mundial. 3. Cuando fui Rector de la Universidad de Monterrey seguimos teniendo contacto a nivel profesional y actualizándonoslo de lo que estábamos realizando cada quien, desde sus trincheras, Felipe sigue avanzando en diferentes proyectos e iniciativas siempre con la Misión y Visión institucional. En fin, Felipe siempre avanzando en temas académicos, consultoría y servicio para diferentes alumnos, organizaciones e instituciones considero algo sumamente loable da parte de él y con grandes testimonios de las personas con las que ha interactuado que me lo comentan y recuerdan con cariño y admiración. Ya para finalizar considero recomendar ampliamente a Felipe en el desarrollo e interacción con los cursos y programas que ofrece a la comunidad empresarial. Estoy seguro de que los miembros de las organizaciones y en lo particular que participen en ellos van a encontrar un excelente profesor, formador, mentor y humano que va a guiarlos en el desarrollo de sus actividades profesionales y formación.',
+      'Conozco a Felipe desde la juventud cuando los juegos de soccer en diferentes escenarios más de 50 años de eso. Su trayectoria en lo personal, profesional e institucional ha sido intachable siempre con transparencia, ética y valores. hemos sido contemporáneos en la carrera universitaria de IIS así como en los estudios de posgrado en USA. Su compromiso con su desarrollo profesional inicialmente para luego asegurar el de sus estudiantes ha sido siempre una característica de Felipe. En los últimos años he tenido el honor de coincidir con Felipe en 3 etapas profesionales, 1. El área académica de Ingeniería Industrial en el Tec de Monterrey donde participamos en la cátedra a jóvenes de diferentes carreras, incluyendo IIS, así como diferentes proyectos de educación ejecutiva y asesorías a empresas; la parte de seguir colaborando, sirviendo a las diferentes áreas de la institución y externas, siempre fueron parte de la actividad. 2. Cuando fui decano de la EGADE Business School, así como ejecutivo de la Universidad Virtual del Tec de Monterrey, continuamos trabajando en iniciativas desde diferentes áreas en la misma institución, siempre viendo seguir la Visión y misión del Tec, alumnos, proyectos y comunidad. En éstos tiempos inició trabajos a nivel internacional con instituciones de prestigio en USA y el mundo para beneficiar el aprendizaje de sus estudiantes, colegas de la institución y de otras instituciones. Cabe mencionar que Felipe fue Vicepresidente Internacional del IIE, formando parte del Consejo del Instituto de Ingenieros Industriales a nivel mundial. 3. Cuando fui Rector de la Universidad de Monterrey seguimos teniendo contacto a nivel profesional y actualizándonoslo de lo que estábamos realizando cada quien, desde sus trincheras. Felipe sigue avanzando en diferentes proyectos e iniciativas siempre con la Misión y Visión institucional. En fin, Felipe siempre avanzando en temas académicos, consultoría y servicio para diferentes alumnos, organizaciones e instituciones; considero algo sumamente loable de su parte y con grandes testimonios de las personas con las que ha interactuado, que me lo comentan y recuerdan con cariño y admiración. Ya para finalizar, considero recomendar ampliamente a Felipe en el desarrollo e interacción con los cursos y programas que ofrece a la comunidad empresarial. Estoy seguro de que los miembros de las organizaciones y, en lo particular, quienes participen en ellos van a encontrar un excelente profesor, formador, mentor y humano que va a guiarlos en el desarrollo de sus actividades profesionales y formación.',
   },
   {
     nombre: 'Juan de Dios Carrizales',
@@ -172,7 +72,7 @@ export function Inicio({ onNavigate }: InicioProps) {
     nombre: 'Patricio G. Murga',
     rol: 'Director de Tecnología y Desarrollo, Viakable',
     texto:
-      'Tengo el placer de conocer a Felipe desde muy joven, y desde entonces he sentido gran respeto y admiración por él. Felipe es un Ingeniero Industrial del ITESM, con un post grado en GEORGIA INSTITUTE OF TECHNOLOGY, más conocido como GEORGIA TECH. Posteriormente a esa etapa, tuvo una excelente y muy larga trayectoria en el TEC DE MONTERREY, en donde fue un gran catedrático y funcionario. Como catedrático, y junto con sus mejores alumnos, desarrolló un sinnúmero de proyectos para la Industria local y nacional. En el presente, al jubilarse de esa institución, esta dando asesorías y cursos de gran impacto. Yo recomiendo ampliamente a Felipe como una fuente segura y confiable de conocimiento.',
+      'Tengo el placer de conocer a Felipe desde muy joven, y desde entonces he sentido gran respeto y admiración por él. Felipe es un Ingeniero Industrial del ITESM, con un post grado en GEORGIA INSTITUTE OF TECHNOLOGY, más conocido como GEORGIA TECH. Posteriormente a esa etapa, tuvo una excelente y muy larga trayectoria en el TEC DE MONTERREY, en donde fue un gran catedrático y funcionario. Como catedrático, y junto con sus mejores alumnos, desarrolló un sinnúmero de proyectos para la Industria local y nacional. En el presente, al jubilarse de esa institución, está dando asesorías y cursos de gran impacto. Yo recomiendo ampliamente a Felipe como una fuente segura y confiable de conocimiento.',
   },
   {
     nombre: 'Jorge Lozano',
@@ -210,14 +110,8 @@ export function Inicio({ onNavigate }: InicioProps) {
 
   return (
     <div className="pt-0">
-      <section className="py-0 bg-gray-50">
-        <PainSolutionSection onNavigate={onNavigate} onRequestCoupon={() => setOpenCouponModal(true)}/>
-      </section>
-      <section className="py-16 bg-white">
-        <SessionInfoVideoCta/>
-      </section>
-
-      
+      <Hero />
+      <MasterClassInfoSection />
   
       {/* Hero.tsx (o donde tengas el hero) */}
       <div className="mt-8 w-full">
@@ -356,7 +250,6 @@ export function Inicio({ onNavigate }: InicioProps) {
             }}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-xl hover:shadow-xl transition-all"
           >
-            <Gift size={24} />
             <span>¡Quiero estos resultados!</span>
             <ExternalLink size={20} />
           </motion.button>
@@ -386,7 +279,7 @@ export function Inicio({ onNavigate }: InicioProps) {
             className="text-center mb-12"
           >
             <h2 className="text-3xl lg:text-4xl mb-4">
-              ¿Por que elegir a CAESA GROUP?
+              ¿Por qué elegir a CAESA GROUP?
             </h2>
             <p className="text-xl text-blue-100">
               No es suerte, son resultados garantizados
@@ -398,7 +291,7 @@ export function Inicio({ onNavigate }: InicioProps) {
               { icon: Award, title: 'Certificación de finalización', desc: '' },
               { icon: TrendingUp, title: 'Mejora tu carrera ', desc: '' },
               { icon: CheckCircle, title: 'Actualizado 2025', desc: '' },
-              { icon: Users, title: 'Vuelvete un profesional cometitivo', desc: '' },
+              { icon: Users, title: 'Vuelvete un profesional competitivo', desc: '' },
               { icon: Rocket, title: 'Aprende Rápido', desc: '' },
               { icon: ShieldCheck, title: 'Garantía con Hotmart', desc: '' },
             ].map((item, index) => (
@@ -421,35 +314,6 @@ export function Inicio({ onNavigate }: InicioProps) {
               </motion.div>
             ))}
           </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400 max-w-3xl mx-auto">
-              <h3 className="text-3xl font-bold mb-6 text-yellow-400">
-                🎁 ¡OBTÉN TU BONUS ESPECIAL!
-              </h3>
-
-              <p className="text-base sm:text-lg text-white/90 mb-8">
-                Sigue los pasos dando click al botón para obtener tu cupón y completar tu compra.
-              </p>
-
-              <motion.button
-                type="button"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setOpenCouponModal(true)}
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-[#1e3a8a] px-10 py-5 rounded-xl hover:shadow-2xl transition-all text-lg font-bold"
-              >
-                <Rocket size={28} />
-                <span>SEGUIR LOS PASOS</span>
-              </motion.button>
-            </div>
-          </motion.div>
-
-
         </div>
       </section>
 
@@ -480,7 +344,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                 rel="noopener noreferrer"
                 className="bg-white shadow-sm p-3 rounded-lg hover:bg-blue-50 transition-colors"
               >
-                <Facebook size={24} className="text-[#2c57e4]" />
+                <Facebook size={36} className="text-[#2c57e4]" />
               </motion.a>
 
               <motion.a
@@ -491,7 +355,7 @@ export function Inicio({ onNavigate }: InicioProps) {
                 rel="noopener noreferrer"
                 className="bg-white shadow-sm p-3 rounded-lg hover:bg-pink-50 transition-colors"
               >
-                <Instagram size={24} className="text-[#E1306C]" />
+                <Instagram size={36} className="text-[#E1306C]" />
               </motion.a>
 
               <motion.a
@@ -502,95 +366,17 @@ export function Inicio({ onNavigate }: InicioProps) {
                 rel="noopener noreferrer"
                 className="bg-white shadow-sm p-3 rounded-lg hover:bg-black/5 transition-colors"
               >
-                <Music2 size={24} className="text-black" />
+                <Music2 size={36} className="text-black" />
               </motion.a>
-
-
-              
             </div>
           </motion.div>
         </div>
       </section>
-
-      {/*  
-      
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="py-20 bg-gradient-to-r from-orange-500 to-red-600 text-white"
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-          >
-            <h2 className="text-4xl lg:text-5xl mb-4">
-              ⏰ El Tiempo Se Acaba...
-            </h2>
-
-            <p className="text-2xl mb-6">
-              Faltan pocos días para la <strong>sesión informativa</strong> y acceder a los descuentos exclusivos.
-            </p>
-
-        
-            {!timeLeft.expired ? (
-              <div className="flex justify-center gap-4 flex-wrap mb-8">
-                <div className="bg-white/10 rounded-xl px-4 py-3 min-w-[80px]">
-                  <div className="text-3xl font-bold">
-                    {String(timeLeft.days).padStart(2, "0")}
-                  </div>
-                  <div className="text-sm uppercase tracking-wide">Días</div>
-                </div>
-                <div className="bg-white/10 rounded-xl px-4 py-3 min-w-[80px]">
-                  <div className="text-3xl font-bold">
-                    {String(timeLeft.hours).padStart(2, "0")}
-                  </div>
-                  <div className="text-sm uppercase tracking-wide">Horas</div>
-                </div>
-                <div className="bg-white/10 rounded-xl px-4 py-3 min-w-[80px]">
-                  <div className="text-3xl font-bold">
-                    {String(timeLeft.minutes).padStart(2, "0")}
-                  </div>
-                  <div className="text-sm uppercase tracking-wide">Min</div>
-                </div>
-                <div className="bg-white/10 rounded-xl px-4 py-3 min-w-[80px]">
-                  <div className="text-3xl font-bold">
-                    {String(timeLeft.seconds).padStart(2, "0")}
-                  </div>
-                  <div className="text-sm uppercase tracking-wide">Seg</div>
-                </div>
-              </div>
-            ) : (
-              <p className="text-xl mb-8 font-semibold">
-                🎉 ¡La sesión informativa es hoy!
-              </p>
-            )}
-
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href="https://chat.whatsapp.com/LFFsURV6sp7KdBBgihKzHo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-white text-orange-600 px-12 py-6 rounded-2xl hover:shadow-2xl transition-all text-xl shadow-xl"
-            >
-              <Rocket size={32} />
-              <span>¡ASEGURAR MI CUPO AHORA!</span>
-              <ExternalLink size={28} />
-            </motion.a>
-
-            <p className="text-sm mt-6 opacity-90">
-              ⚡ No pierdas esta oportunidad única — sesión informativa: 18/12/2025 CDMX
-            </p>
-          </motion.div>
-        </div>
-      </motion.section> */}
-      <CouponRequestModal
-        isOpen={openCouponModal}
-        onClose={() => setOpenCouponModal(false)}
-      />
-
     </div>
   );
 }
+
+
+
+
+
