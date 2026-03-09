@@ -52,7 +52,7 @@ interface Programa {
 }
 
 export function Programas() {
-  const HOTMART_URL = "https://hotmart.com";
+  const HOTMART_URL = "https://go.hotmart.com/A102899896X";
   const [programaSeleccionado, setProgramaSeleccionado] =
     useState<Programa | null>(null);
   const [openCouponModal, setOpenCouponModal] = useState(false);
