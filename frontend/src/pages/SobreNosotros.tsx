@@ -38,7 +38,7 @@ export function SobreNosotros({ onNavigate }: SobreNosotrosProps) {
     {
       year: '1996',
       titulo: 'Fundación de CAESA GROUP',
-      descripcion: 'Pequeña descripcion de la fundación y primeros pasos'
+      descripcion: 'Pequeña descripción de la fundación y primeros pasos'
     },
     {
       year: '2020',
@@ -225,7 +225,7 @@ export function SobreNosotros({ onNavigate }: SobreNosotrosProps) {
             ¿Listo para dar el siguiente paso?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Diferencia tu perfil profesional con habilidades obtenidas con nuestros conocimientos que las empresas hoy en dia valoran.
+            Diferencia tu perfil profesional con habilidades obtenidas con nuestros conocimientos que las empresas hoy en día valoran.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button

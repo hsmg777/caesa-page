@@ -25,7 +25,7 @@ export function PromoBanner() {
       <div className="relative flex items-center justify-center gap-2 flex-wrap"> 
         <Flame size={20}/>    
         <span className="text-sm md:text-base">
-          <strong>Accede a DESCUENTOS</strong> y más <strong>REGISTRANDOTE</strong> en la <strong> SESIÓN INFORMATIVA</strong>
+          <strong>Accede a DESCUENTOS</strong> y más <strong>REGISTRÁNDOTE</strong> en la <strong> SESIÓN INFORMATIVA</strong>
         </span>
                 
         <Flame size={20}/>

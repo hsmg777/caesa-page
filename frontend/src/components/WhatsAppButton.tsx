@@ -8,7 +8,7 @@ export function WhatsAppButton() {
 
   const handleClick = () => {
   const phone = "528117931668"; 
-  const text = encodeURIComponent("Hola quiero mas informacion");
+  const text = encodeURIComponent("Hola quiero más información");
   const url = `https://wa.me/${phone}?text=${text}`;
   window.open(url, "_blank", "noopener,noreferrer");
 };

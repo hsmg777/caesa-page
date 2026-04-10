@@ -81,7 +81,7 @@ export default function App() {
     const canonicalUrl = `${SITE_URL}${routePath}`;
 
     const baseKeywords =
-      "cursos online, cursos grabados, capacitacion para crecimiento profesional, habilidades para calidad, herramientas de mejora continua, ejercicios practicos, simuladores didacticos, constancia para CV, certificado para LinkedIn";
+      "cursos online, cursos grabados, capacitación para crecimiento profesional, habilidades para calidad, herramientas de mejora continua, ejercicios prácticos, simuladores didácticos, constancia para CV, certificado para LinkedIn";
 
     const seoByPath: Record<
       string,
@@ -96,56 +96,56 @@ export default function App() {
       "/": {
         title: "Cursos Online y Grabados para Crecimiento Profesional | CAESA GROUP",
         description:
-          "Cursos online y grabados para acelerar tu crecimiento profesional con habilidades aplicables, ejercicios practicos, simuladores didacticos y constancia para CV y LinkedIn.",
+          "Cursos online y grabados para acelerar tu crecimiento profesional con habilidades aplicables, ejercicios prácticos, simuladores didácticos y constancia para CV y LinkedIn.",
         keywords: `${baseKeywords}, crecimiento profesional, empleabilidad, cursos de manufactura y procesos`,
       },
       "/cursos": {
         title: "Cursos Online para Calidad, Procesos y Manufactura | CAESA GROUP",
         description:
-          "Aprende con practica, no con teoria: cursos online y grabados con simuladores didacticos, ejercicios guiados y constancia para impulsar entrevistas, ascensos y empleabilidad.",
+          "Aprende con práctica, no con teoría: cursos online y grabados con simuladores didácticos, ejercicios guiados y constancia para impulsar entrevistas, ascensos y empleabilidad.",
         keywords:
-          `${baseKeywords}, cursos para calidad, cursos de procesos, cursos de manufactura, teoria de restricciones, cadena critica`,
+          `${baseKeywords}, cursos para calidad, cursos de procesos, cursos de manufactura, teoría de restricciones, cadena crítica`,
         faq: [
           {
-            question: "¿Es practico o solo teoria?",
+            question: "¿Es práctico o solo teoría?",
             answer:
-              "Es practico. Incluye ejercicios y simuladores computacionales didacticos paso a paso, sin requisitos previos.",
+              "Es práctico. Incluye ejercicios y simuladores computacionales didácticos paso a paso, sin requisitos previos.",
           },
           {
             question: "¿Vale lo que cuesta?",
             answer:
-              "Si. Es una formacion enfocada a resultados laborales con excelente costo-beneficio, promociones y cupones disponibles.",
+              "Sí. Es una formación enfocada a resultados laborales con excelente costo-beneficio, promociones y cupones disponibles.",
           },
           {
             question: "¿Entregan constancia?",
-            answer: "Si. Se entrega constancia util para fortalecer CV y perfil de LinkedIn.",
+            answer: "Sí. Se entrega constancia útil para fortalecer CV y perfil de LinkedIn.",
           },
         ],
       },
       "/programas": {
         title: "Programa Avanzado de Competencias Profesionales | CAESA GROUP",
         description:
-          "Programa online para profesionistas de calidad, procesos y manufactura que buscan resultados demostrables en 20 horas por curso, con enfoque practico y constancia.",
+          "Programa online para profesionistas de calidad, procesos y manufactura que buscan resultados demostrables en 20 horas por curso, con enfoque práctico y constancia.",
         keywords:
           `${baseKeywords}, programa de competencias profesionales, ascenso laboral, entrevistas laborales`,
       },
       "/sobre-nosotros": {
-        title: "Sobre CAESA GROUP | Formacion Aplicada para LatAm",
+        title: "Sobre CAESA GROUP | Formación Aplicada para LatAm",
         description:
-          "Conoce a CAESA GROUP y su enfoque de capacitacion aplicada para Mexico, Ecuador, Chile y Colombia en calidad, mejora continua, procesos y manufactura.",
+          "Conoce a CAESA GROUP y su enfoque de capacitación aplicada para Mexico, Ecuador, Chile y Colombia en calidad, mejora continua, procesos y manufactura.",
         keywords:
-          "CAESA GROUP, capacitacion profesional LatAm, calidad, procesos, manufactura, mejora continua",
+          "CAESA GROUP, capacitación profesional LatAm, calidad, procesos, manufactura, mejora continua",
       },
       "/contacto": {
-        title: "Contacto y Cotizaciones de Capacitacion | CAESA GROUP",
+        title: "Contacto y Cotizaciones de Capacitación | CAESA GROUP",
         description:
-          "Solicita informacion y cotizacion de cursos online, programas y capacitacion In Company para calidad, procesos, mejora continua y manufactura.",
+          "Solicita información y cotización de cursos online, programas y capacitación In Company para calidad, procesos, mejora continua y manufactura.",
         keywords:
-          "contacto CAESA GROUP, cotizacion cursos, capacitacion In Company, cursos online grabados",
+          "contacto CAESA GROUP, cotización cursos, capacitación In Company, cursos online grabados",
       },
       "/forms-session": {
-        title: "Sesion Informativa | CAESA GROUP",
-        description: "Registro para sesion informativa de CAESA GROUP.",
+        title: "Sesión Informativa | CAESA GROUP",
+        description: "Registro para sesión informativa de CAESA GROUP.",
         robots: "noindex, nofollow",
       },
     };

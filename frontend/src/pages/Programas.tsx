@@ -51,30 +51,30 @@ const programas: Programa[] = [
     id: 1,
     nombre: "Programa Avanzado de Competencias Profesionales",
     descripcion:
-      "Ha sido disenado para fortalecer habilidades que las empresas modernas valoran: pensamiento critico, liderazgo, metodologias de mejora, administracion de proyectos y toma de decisiones efectivas. Cada curso ofrece formacion complementaria que impulsa la empleabilidad y acelera el crecimiento profesional.",
+      "Ha sido diseñado para fortalecer habilidades que las empresas modernas valoran: pensamiento crítico, liderazgo, metodologías de mejora, administración de proyectos y toma de decisiones efectivas. Cada curso ofrece formación complementaria que impulsa la empleabilidad y acelera el crecimiento profesional.",
     duracion: "6 cursos",
     nivel: "Intermedio",
     modalidad: "Online",
     precio: "$497 USD",
     precioAnterior: "$782 USD",
     beneficios: [
-      "Mayor empleabilidad y preparacion para puestos gerenciales",
+      "Mayor empleabilidad y preparación para puestos gerenciales",
       "Certificados profesionales individuales por curso",
-      "Dominio de metodologias modernas (Lean, TOC, Kaizen)",
+      "Dominio de metodologías modernas (Lean, TOC, Kaizen)",
       "Habilidades para la toma de decisiones basada en datos",
     ],
     modulos: [
-      "Curso 1: Admin. de empresas de manufactura con enfoque de Teoria de Restricciones (TOC)",
-      "Curso 2: Administracion de Proyectos con el enfoque de Cadena Critica (CCPM)",
+      "Curso 1: Admin. de empresas de manufactura con enfoque de Teoría de Restricciones (TOC)",
+      "Curso 2: Administración de Proyectos con el enfoque de Cadena Crítica (CCPM)",
       "Curso 3: Sistemas de Soporte para la toma de decisiones",
-      "Curso 4: Analisis y Solucion de Problemas",
-      "Curso 5: Pensamiento Critico",
-      "Curso 6: Liderazgo, Trabajo en Equipo y Administracion del Tiempo",
+      "Curso 4: Análisis y Solución de Problemas",
+      "Curso 5: Pensamiento Crítico",
+      "Curso 6: Liderazgo, Trabajo en Equipo y Administración del Tiempo",
     ],
     incluye: [
-      "Simuladores interactivos con software didactico",
-      "Metodologia exclusiva CAESA GROUP",
-      "Enfoque practico aplicable desde el primer dia",
+      "Simuladores interactivos con software didáctico",
+      "Metodología exclusiva CAESA GROUP",
+      "Enfoque práctico aplicable desde el primer día",
     ],
     imageUrl: "/images/programa.png",
     ctaHref: "https://go.hotmart.com/A102899896X",
@@ -83,18 +83,18 @@ const programas: Programa[] = [
     footer: "© CAESA GROUP | www.caesagroup.com | contacto@caesagroup.com",
     detalle: {
       introduccion: [
-        "El Programa de Desarrollo de Competencias Profesionales ha sido disenado para jovenes profesionistas, recien egresados y colaboradores con experiencia intermedia que desean acelerar su crecimiento profesional.",
-        "Este programa integra cursos practicos que no suelen ensenarse en la universidad, pero que son altamente valorados por empresas nacionales e internacionales. Los participantes desarrollaran habilidades que les permitiran destacar en procesos de seleccion, desempenarse exitosamente en roles clave y obtener ascensos basados en resultados tangibles.",
+        "El Programa de Desarrollo de Competencias Profesionales ha sido diseñado para jóvenes profesionistas, recién egresados y colaboradores con experiencia intermedia que desean acelerar su crecimiento profesional.",
+        "Este programa integra cursos prácticos que no suelen enseñarse en la universidad, pero que son altamente valorados por empresas nacionales e internacionales. Los participantes desarrollarán habilidades que les permitirán destacar en procesos de selección, desempeñarse exitosamente en roles clave y obtener ascensos basados en resultados tangibles.",
       ],
       desafios: [
-        "Falta de experiencia practica para resolver problemas reales.",
+        "Falta de experiencia práctica para resolver problemas reales.",
         "Escasas oportunidades de ascenso.",
         "Dificultad para tomar decisiones basadas en datos.",
-        "Poca exposicion a metodologias modernas como Lean, TOC y CCPM.",
-        "Falta de habilidades de liderazgo y pensamiento estrategico.",
+        "Poca exposición a metodologías modernas como Lean, TOC y CCPM.",
+        "Falta de habilidades de liderazgo y pensamiento estratégico.",
       ],
       aspiraciones: [
-        "Avanzar mas rapido en su carrera.",
+        "Avanzar más rápido en su carrera.",
         "Ser un profesionista altamente valorado.",
         "Lograr ascensos y reconocimiento.",
         "Obtener certificaciones profesionales.",
@@ -103,107 +103,107 @@ const programas: Programa[] = [
       beneficiosFinales: [
         "Mayor empleabilidad.",
         "Certificados profesionales por curso.",
-        "Dominio de metodologias practicas aplicables desde el primer dia.",
-        "Habilidades tecnicas, estrategicas y de liderazgo.",
-        "Preparacion solida para puestos gerenciales.",
+        "Dominio de metodologías prácticas aplicables desde el primer día.",
+        "Habilidades técnicas, estratégicas y de liderazgo.",
+        "Preparación sólida para puestos gerenciales.",
       ],
       cursos: [
         {
           titulo:
-            "1. Administracion de Empresas de Manufactura con el enfoque de Teoria de Restricciones (TOC)",
+            "1. Administración de Empresas de Manufactura con el enfoque de Teoría de Restricciones (TOC)",
           parrafos: [
-            "Curso practico basado en los principios desarrollados por Eliyahu Goldratt, para identificar cuellos de botella, gestionar flujo y mejorar entregas.",
-            "Incluye simulaciones con software didactico para facilitar la comprension y aplicacion de los conceptos.",
+            "Curso práctico basado en los principios desarrollados por Eliyahu Goldratt, para identificar cuellos de botella, gestionar flujo y mejorar entregas.",
+            "Incluye simulaciones con software didáctico para facilitar la comprensión y aplicación de los conceptos.",
           ],
           beneficioClave:
-            "Aumentar capacidad de produccion y mejorar plazos de entrega.",
+            "Aumentar capacidad de producción y mejorar plazos de entrega.",
         },
         {
-          titulo: "2. Administracion de Proyectos con Cadena Critica (CCPM)",
+          titulo: "2. Administración de Proyectos con Cadena Crítica (CCPM)",
           parrafos: [
             "Enfocado en planear y ejecutar proyectos sin retrasos.",
-            "Enseña uso de buffers, coordinacion de recursos y mejor control del avance real.",
+            "Enseña uso de buffers, coordinación de recursos y mejor control del avance real.",
           ],
           beneficioClave:
-            "Ejecutar proyectos mas rapido y con menos conflictos.",
+            "Ejecutar proyectos más rápido y con menos conflictos.",
         },
         {
           titulo: "3. Sistemas de Soporte para la Toma de Decisiones (VGCM)",
           parrafos: [
-            "Basado en el algoritmo de Velocidad de Generacion de Contribucion Marginal, desarrollado por CAESA GROUP.",
-            "Ayuda a analizar decisiones en ventas, compras y produccion para maximizar la contribucion marginal.",
+            "Basado en el algoritmo de Velocidad de Generación de Contribución Marginal, desarrollado por CAESA GROUP.",
+            "Ayuda a analizar decisiones en ventas, compras y producción para maximizar la contribución marginal.",
           ],
           beneficioClave:
             "Tomar decisiones que aumentan resultados financieros.",
         },
         {
-          titulo: "4. Analisis y Solucion de Problemas",
+          titulo: "4. Análisis y Solución de Problemas",
           parrafos: [
-            "Curso basado en enfoque cientifico para analizar causas raiz, validar hipotesis y resolver problemas reales.",
+            "Curso basado en enfoque científico para analizar causas raíz, validar hipótesis y resolver problemas reales.",
           ],
           beneficioClave: "Lograr soluciones verificables y sostenibles.",
         },
         {
-          titulo: "5. Pensamiento Critico",
+          titulo: "5. Pensamiento Crítico",
           parrafos: [
-            "Desarrolla habilidades cognitivas avanzadas para evaluar informacion, cuestionar supuestos y tomar decisiones racionales.",
+            "Desarrolla habilidades cognitivas avanzadas para evaluar información, cuestionar supuestos y tomar decisiones racionales.",
           ],
           beneficioClave: "Ganar claridad mental en entornos complejos.",
         },
         {
-          titulo: "6. Liderazgo, Trabajo en Equipo y Administracion del Tiempo",
+          titulo: "6. Liderazgo, Trabajo en Equipo y Administración del Tiempo",
           parrafos: [
             "Desarrolla habilidades humanas para dirigir equipos, comunicar con impacto y administrar prioridades.",
           ],
           beneficioClave:
-            "Convertirse en un lider confiable y orientado a resultados.",
+            "Convertirse en un líder confiable y orientado a resultados.",
         },
       ],
       conclusion:
-        "Este programa prepara profesionistas completos, capaces de aportar valor estrategico, mejorar procesos, liderar equipos y tomar decisiones inteligentes. Es ideal para quienes buscan ascensos, cambios de rol o mayor competitividad profesional.",
+        "Este programa prepara profesionistas completos, capaces de aportar valor estratégico, mejorar procesos, liderar equipos y tomar decisiones inteligentes. Es ideal para quienes buscan ascensos, cambios de rol o mayor competitividad profesional.",
     },
   },
   {
     id: 2,
-    nombre: "Programa de Teoria de Restricciones Aplicada",
+    nombre: "Programa de Teoría de Restricciones Aplicada",
     descripcion:
-      "Programa practico compuesto por tres cursos de alto valor para el entorno laboral actual. Ayuda a mejorar operaciones, gestionar proyectos con menos retrasos y tomar decisiones mas inteligentes con impacto real en los resultados.",
+      "Programa práctico compuesto por tres cursos de alto valor para el entorno laboral actual. Ayuda a mejorar operaciones, gestionar proyectos con menos retrasos y tomar decisiones más inteligentes con impacto real en los resultados.",
     duracion: "3 cursos",
     nivel: "Intermedio",
     modalidad: "Online",
     precio: "$367 USD",
     precioAnterior: "$491 USD",
     beneficios: [
-      "Entender como mejorar el desempeno de una empresa de manufactura",
+      "Entender como mejorar el desempeño de una empresa de manufactura",
       "Gestionar proyectos con menos retrasos y mayor enfoque",
-      "Tomar decisiones operativas y financieras mas inteligentes",
-      "Hablar el lenguaje de resultados que valoran lideres y gerentes",
+      "Tomar decisiones operativas y financieras más inteligentes",
+      "Hablar el lenguaje de resultados que valoran líderes y gerentes",
     ],
     modulos: [
-      "Curso 1: Administracion de empresas de manufactura con enfoque de Teoria de Restricciones (TOC)",
-      "Curso 2: Administracion de Proyectos con el enfoque de Cadena Critica (CCPM)",
+      "Curso 1: Administración de empresas de manufactura con enfoque de Teoría de Restricciones (TOC)",
+      "Curso 2: Administración de Proyectos con el enfoque de Cadena Crítica (CCPM)",
       "Curso 3: Sistemas de Soporte para la toma de decisiones",
     ],
     incluye: [
-      "Simulaciones con software didactico para facilitar el aprendizaje practico",
-      "Enfoque practico aplicable desde el primer dia",
+      "Simulaciones con software didáctico para facilitar el aprendizaje práctico",
+      "Enfoque práctico aplicable desde el primer día",
       "Herramientas orientadas a resultados operativos y financieros",
     ],
     imageUrl: "/images/restricciones.png",
     ctaHref: "/contacto",
-    ctaLabel: "Solicitar informacion",
+    ctaLabel: "Solicitar información",
     footer: "© CAESA GROUP | www.caesagroup.com | contacto@caesagroup.com",
     detalle: {
       introduccion: [
-        "El Programa de Teoria de Restricciones Aplicada ha sido disenado para jovenes profesionistas, recien egresados y colaboradores con experiencia intermedia que desean fortalecer sus competencias en administracion de operaciones, gestion de proyectos y toma de decisiones empresariales.",
-        "Este programa reune tres cursos practicos de alto valor para el entorno laboral actual, enfocados en metodologias modernas que permiten mejorar resultados, optimizar recursos y contribuir de forma directa al desempeno de las empresas. A traves de herramientas aplicables desde el primer dia, los participantes desarrollaran una vision mas estrategica, analitica y orientada a resultados.",
+        "El Programa de Teoría de Restricciones Aplicada ha sido diseñado para jóvenes profesionistas, recién egresados y colaboradores con experiencia intermedia que desean fortalecer sus competencias en administración de operaciones, gestión de proyectos y toma de decisiones empresariales.",
+        "Este programa reúne tres cursos prácticos de alto valor para el entorno laboral actual, enfocados en metodologías modernas que permiten mejorar resultados, optimizar recursos y contribuir de forma directa al desempeño de las empresas. A través de herramientas aplicables desde el primer día, los participantes desarrollarán una visión más estratégica, analítica y orientada a resultados.",
       ],
       desafios: [
         "Dificultad para entender y gestionar sistemas productivos de manera integral.",
         "Problemas para planear y ejecutar proyectos sin retrasos.",
-        "Toma de decisiones basada en intuicion y no en analisis financiero y operativo.",
-        "Escasa formacion practica en metodologias modernas como Teoria de Restricciones y Administracion de Proyectos.",
-        "Necesidad de generar resultados medibles en entornos de alta presion y recursos limitados.",
+        "Toma de decisiones basada en intuición y no en análisis financiero y operativo.",
+        "Escasa formación práctica en metodologías modernas como Teoría de Restricciones y Administración de Proyectos.",
+        "Necesidad de generar resultados medibles en entornos de alta presión y recursos limitados.",
       ],
       aspiraciones: [
         "Acelerar su crecimiento profesional.",
@@ -214,43 +214,43 @@ const programas: Programa[] = [
       ],
       beneficiosFinales: [
         "Mayor capacidad para analizar y mejorar operaciones de manufactura.",
-        "Herramientas practicas para gestionar proyectos con mayor velocidad y confiabilidad.",
+        "Herramientas prácticas para gestionar proyectos con mayor velocidad y confiabilidad.",
         "Habilidad para tomar decisiones enfocadas en maximizar resultados financieros.",
         "Conocimientos diferenciadores altamente valorados en empresas nacionales e internacionales.",
-        "Preparacion solida para asumir retos de coordinacion, supervision y mejora continua.",
+        "Preparación sólida para asumir retos de coordinación, supervisión y mejora continua.",
       ],
       cursos: [
         {
           titulo:
-            "1. Administracion de Empresas de Manufactura con enfoque de Teoria de Restricciones (TOC)",
+            "1. Administración de Empresas de Manufactura con enfoque de Teoría de Restricciones (TOC)",
           parrafos: [
-            "Curso practico basado en los principios desarrollados por Eliyahu Goldratt, orientado a identificar cuellos de botella, gestionar el flujo y mejorar el desempeno global de los sistemas productivos.",
-            "Los participantes aprenderan a reconocer las restricciones que limitan la capacidad de la empresa, priorizar acciones de mejora y enfocar esfuerzos en aquello que genera mayor impacto en los resultados. Incluye simulaciones con software didactico para facilitar la comprension y aplicacion de los conceptos.",
+            "Curso práctico basado en los principios desarrollados por Eliyahu Goldratt, orientado a identificar cuellos de botella, gestionar el flujo y mejorar el desempeño global de los sistemas productivos.",
+            "Los participantes aprenderán a reconocer las restricciones que limitan la capacidad de la empresa, priorizar acciones de mejora y enfocar esfuerzos en aquello que genera mayor impacto en los resultados. Incluye simulaciones con software didáctico para facilitar la comprensión y aplicación de los conceptos.",
           ],
           beneficioClave:
-            "Aumentar la capacidad de produccion, mejorar plazos de entrega y enfocar la mejora donde realmente se generan resultados.",
+            "Aumentar la capacidad de producción, mejorar plazos de entrega y enfocar la mejora donde realmente se generan resultados.",
         },
         {
-          titulo: "2. Administracion de Proyectos con Cadena Critica (CCPM)",
+          titulo: "2. Administración de Proyectos con Cadena Crítica (CCPM)",
           parrafos: [
-            "Curso enfocado en la planeacion y ejecucion efectiva de proyectos mediante la metodologia de Cadena Critica, tambien desarrollada a partir de los aportes de Goldratt.",
-            "El participante aprendera a gestionar tiempos, recursos y prioridades de manera mas eficiente, evitando retrasos causados por multitarea, mala estimacion de tiempos o conflictos entre actividades. Incluye el uso de buffers, coordinacion de recursos y simulador interactivo de proyectos.",
+            "Curso enfocado en la planeación y ejecución efectiva de proyectos mediante la metodología de Cadena Crítica, también desarrollada a partir de los aportes de Goldratt.",
+            "El participante aprenderá a gestionar tiempos, recursos y prioridades de manera más eficiente, evitando retrasos causados por multitarea, mala estimación de tiempos o conflictos entre actividades. Incluye el uso de buffers, coordinación de recursos y simulador interactivo de proyectos.",
           ],
           beneficioClave:
-            "Ejecutar proyectos mas rapido, con menos retrasos y mejor control del avance real.",
+            "Ejecutar proyectos más rápido, con menos retrasos y mejor control del avance real.",
         },
         {
           titulo: "3. Sistemas de Soporte para la Toma de Decisiones (VGCM)",
           parrafos: [
-            "Curso orientado al uso del algoritmo de Velocidad de Generacion de Contribucion Marginal (VGCM), desarrollado por CAESA GROUP, para apoyar decisiones en areas como ventas, compras, produccion y asignacion de recursos.",
-            "Los participantes aprenderan a evaluar alternativas de decision con base en su impacto sobre la contribucion marginal, fortaleciendo el criterio financiero y operativo para seleccionar opciones que realmente mejoren el desempeno del negocio.",
+            "Curso orientado al uso del algoritmo de Velocidad de Generación de Contribución Marginal (VGCM), desarrollado por CAESA GROUP, para apoyar decisiones en áreas como ventas, compras, producción y asignación de recursos.",
+            "Los participantes aprenderán a evaluar alternativas de decisión con base en su impacto sobre la contribución marginal, fortaleciendo el criterio financiero y operativo para seleccionar opciones que realmente mejoren el desempeño del negocio.",
           ],
           beneficioClave:
-            "Tomar decisiones mas inteligentes y rentables, alineadas con los objetivos financieros de la empresa.",
+            "Tomar decisiones más inteligentes y rentables, alineadas con los objetivos financieros de la empresa.",
         },
       ],
       conclusion:
-        "El Programa de Teoria de Restricciones Aplicada prepara profesionistas capaces de entender la operacion de una empresa, ejecutar proyectos con mayor efectividad y tomar decisiones fundamentadas en impacto real. Es ideal para quienes buscan diferenciarse profesionalmente, generar resultados visibles y avanzar hacia posiciones de mayor responsabilidad.",
+        "El Programa de Teoría de Restricciones Aplicada prepara profesionistas capaces de entender la operación de una empresa, ejecutar proyectos con mayor efectividad y tomar decisiones fundamentadas en impacto real. Es ideal para quienes buscan diferenciarse profesionalmente, generar resultados visibles y avanzar hacia posiciones de mayor responsabilidad.",
     },
   },
 ];
@@ -291,7 +291,7 @@ export function Programas() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h1 className="mb-4 text-4xl lg:text-5xl">Nuestros Programas</h1>
           <p className="max-w-3xl text-xl text-blue-100">
-            Programas completos disenados para profesionales que buscan transformar
+            Programas completos diseñados para profesionales que buscan transformar
             su carrera con herramientas aplicables.
           </p>
         </div>
@@ -381,7 +381,7 @@ export function Programas() {
                   <div>
                     <h3 className="mb-3 flex items-center gap-2 text-lg text-[#1e3a8a]">
                       <Award size={18} />
-                      ¿Que incluye?
+                      ¿Qué incluye?
                     </h3>
                     <div className="grid gap-2 sm:grid-cols-2">
                       {programa.incluye.map((item, idx) => (

@@ -2,12 +2,12 @@ import { ArrowRight, CheckCircle2, CircleDollarSign } from "lucide-react";
 
 const courses = [
   "Manufactura con enfoque TOC",
-  "Proyectos con Cadena Critica",
+  "Proyectos con Cadena Crítica",
   "Soporte para Decisiones",
 ];
 
 const benefits = [
-  "Mejora operaciones con una vision mas clara del sistema.",
+  "Mejora operaciones con una visión más clara del sistema.",
   "Gestiona proyectos con menos retrasos y mayor enfoque.",
   "Toma decisiones con mejor criterio operativo y financiero.",
 ];
@@ -23,7 +23,7 @@ export default function MasterClassInfoSection() {
             </p>
 
             <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">
-              Teoria de Restricciones Aplicada
+              Teoría de Restricciones Aplicada
             </h2>
 
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-200">
@@ -31,7 +31,7 @@ export default function MasterClassInfoSection() {
             </p>
 
             <p className="mt-5 max-w-xl text-sm leading-relaxed text-slate-300 sm:text-base">
-              Programa disenado para jovenes profesionistas, recien egresados y personal con experiencia intermedia que quieren crecer mas rapido dentro de su empresa.
+              Programa diseñado para jóvenes profesionistas, recién egresados y personal con experiencia intermedia que quieren crecer más rápido dentro de su empresa.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -39,7 +39,7 @@ export default function MasterClassInfoSection() {
                 3 cursos online
               </div>
               <div className="rounded-full border border-slate-600 px-4 py-2 text-sm font-bold text-white">
-                Simulaciones didacticas
+                Simulaciones didácticas
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function MasterClassInfoSection() {
                 </ul>
 
                 <p className="mt-5 text-sm font-medium leading-relaxed text-slate-600 sm:text-base">
-                  Incluye simulaciones con software didactico para facilitar el aprendizaje practico.
+                  Incluye simulaciones con software didáctico para facilitar el aprendizaje práctico.
                 </p>
               </div>
 
@@ -107,7 +107,7 @@ export default function MasterClassInfoSection() {
                   href="/contacto"
                   className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-black text-[#0d2f6f] transition hover:bg-slate-100"
                 >
-                  <span>Quiero informacion</span>
+                  <span>Quiero información</span>
                   <ArrowRight size={16} className="shrink-0" />
                 </a>
               </div>

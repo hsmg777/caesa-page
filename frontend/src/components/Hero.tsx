@@ -43,7 +43,7 @@ export default function Hero() {
               transition={{ duration: 0.55, delay: 0.16 }}
               className="mt-4 max-w-lg text-base leading-relaxed text-slate-700 sm:text-lg"
             >
-              Mejora operaciones, acelera proyectos y toma mejores decisiones con el Programa de Teoria de Restricciones Aplicada.
+              Mejora operaciones, acelera proyectos y toma mejores decisiones con el Programa de Teoría de Restricciones Aplicada.
             </motion.p>
 
             <motion.div
@@ -81,7 +81,7 @@ export default function Hero() {
                 href="/contacto"
                 className="inline-flex min-h-14 items-center justify-center rounded-full bg-[#0d2f6f] px-8 py-4 text-base font-black text-white shadow-lg transition hover:bg-[#0b2557] sm:min-h-16 sm:px-10 sm:text-lg"
               >
-                Quiero recibir informacion
+                Quiero recibir información
               </a>
               <a
                 href="/programas"
